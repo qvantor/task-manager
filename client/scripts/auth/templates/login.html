@@ -1,0 +1,42 @@
+<!-- Login Block -->
+<div class="block block-themed animated fadeIn">
+    <div class="block-header">
+        <h3 class="block-title">Login</h3>
+    </div>
+
+        <p>Welcome, please login. </p>
+        <!-- END Login Title -->
+
+        <form class="form-horizontal push-30-t push-50" name="login">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="form-material form-material-primary floating">
+                      <label for="login-mail">E-mail</label>
+                        <input class="form-control" type="text"
+                               id="login-mail" ng-model="vm.user.email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="form-material form-material-primary floating">
+                      <label for="login-password">Password</label>
+                        <input class="form-control" type="password"
+                               id="login-password" ng-model="vm.user.password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <button class="btn btn-block btn-primary"
+                            ng-click="vm.login()" ng-disabled="login.$invalid" type="submit">
+
+                        <i class="si si-login pull-right"></i>
+                        Log in
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- END Login Form -->
+</div>
+<!-- END Login Block -->
