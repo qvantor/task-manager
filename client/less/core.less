@@ -1,0 +1,72 @@
+@import 'https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,900';
+@import "light";
+@import "header";
+@import "tasks";
+
+.tr {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+body {
+  background: @bg2;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.inline {
+  display: inline;
+}
+
+.container {
+  h1 {
+    color: #263238;
+  }
+  .header {
+    margin: 33px 0px 5px 0px;
+    color: @softText;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .block {
+    margin: 0px 0px 30px 0px;
+    padding: 10px 0px;
+
+    ul {
+      padding: 0px;
+      margin: 0px;
+
+      li {
+        .tr;
+        padding: 5px 20px;
+        list-style-type: none;
+
+        &:hover {
+          background: @bg3;
+        }
+      }
+    }
+  }
+  .standard-block {
+    .tr;
+    background: @bg1;
+    border: 1px solid @bg3;
+    -webkit-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+    -moz-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+    box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+    &:hover {
+      -webkit-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+      -moz-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+      box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+    }
+  }
+}
+
+.font-w600 {
+  font-weight: 600;
+}
+
+.soft-text {
+  color: @softText;
+}

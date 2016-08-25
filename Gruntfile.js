@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
-          port: 8000,
+          port: 80,
           base: 'client'
         }
       }
@@ -26,11 +26,10 @@ module.exports = function (grunt) {
         files: ['client/less/**'],
         tasks: ['less'],
         options: {
-          livereload: true,
-          port: 35730
+          livereload: 98765
         }
       }
     }
   });
-  grunt.registerTask('live', ['watch','less']);
+  grunt.registerTask('live', ['connect', 'watch', 'less']);
 };
