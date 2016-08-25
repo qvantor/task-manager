@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task-tracker init</title>
+  <link href="css/core.css" rel="stylesheet">
+</head>
+<body ng-app="app">
+<div ui-view></div>
+<script src="bower/angular/angular.js"></script>
+<script src="bower/angular-cookies/angular-cookies.js"></script>
+<script src="bower/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="scripts/app.js"></script>
+
+<script src="scripts/auth/auth.js"></script>
+<script src="scripts/auth/route.js"></script>
+<script src="scripts/auth/service/auth.js"></script>
+<script src="scripts/auth/controllers/login.js"></script>
+<script src="scripts/auth/controllers/signup.js"></script>
+
+<script src="scripts/core/core.js"></script>
+<script src="scripts/core/service/req.js"></script>
+<script src="scripts/core/service/httpInterceptor.js"></script>
+<script src="scripts/core/filters/trustAsHtml.js"></script>
+</body>
+</html>

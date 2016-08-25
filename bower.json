@@ -1,0 +1,25 @@
+{
+  "name": "task-manager",
+  "description": "task-manager",
+  "main": "server/server.js",
+  "authors": [
+    "SergNikolaev <iintersergey@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/qvantor/task-manager",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "angular-cookies": "^1.5.8"
+  }
+}
