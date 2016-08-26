@@ -1,0 +1,41 @@
+.projects {
+  .add-new{
+    .tr;
+    border: 3px dashed @bg3;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    color: @softText;
+    font-size: 18px;
+
+    &:hover{
+      border: 3px dashed @softText;
+      color: @grayText;
+    }
+  }
+  .block {
+
+    .users {
+      position: relative;
+
+      .user {
+        display: inline-block;
+        margin: 0px 5px;
+
+        &:first-child {
+          margin: 0 5px 0 0;
+        }
+        img {
+          border-radius: 30px;
+          width: 30px;
+        }
+      }
+      .all-users {
+        position: absolute;
+        font-size: 12px;
+        right: 0px;
+        bottom: 5px;
+      }
+    }
+  }
+}

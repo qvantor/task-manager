@@ -2,9 +2,13 @@
   angular.module('app', [
     'ngCookies',
     'ui.router',
+    'ui.bootstrap',
+    'ng-sortable',
 
     'app.core',
-    'app.auth'
+    'app.auth',
+    'app.projects',
+    'app.issues'
   ])
     .config(configState)
     .run(run);

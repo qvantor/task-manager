@@ -1,0 +1,110 @@
+.tr {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+body {
+  background: @bg2;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.inline {
+  display: inline;
+}
+
+.container {
+  h1 {
+    color: #263238;
+  }
+  .header {
+    margin: 33px 0px 5px 0px;
+    color: @softText;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  h3 {
+    color: @softText;
+    margin: 25px 0 5px 0;
+    font-size: 22px;
+  }
+  .block {
+    padding: 10px 0px;
+
+    ul {
+      padding: 0px;
+      margin: 0px;
+
+      li {
+        .tr;
+        padding: 5px 20px;
+        list-style-type: none;
+
+        &:hover {
+          background: @bg3;
+        }
+      }
+    }
+
+    &.start-block {
+      margin: 30px 0px;
+    }
+    &.full-padding {
+      padding: 10px 15px;
+    }
+  }
+  .standard-block {
+    .tr;
+    background: @bg1;
+    border: 1px solid @bg3;
+    -webkit-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+    -moz-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+    box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 0.28);
+
+    .right-text {
+      color: @softText;
+      font-weight: 600;
+    }
+
+    &:hover {
+      -webkit-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+      -moz-box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+      box-shadow: 0px 0px 32px 9px rgba(234, 238, 240, 1);
+    }
+  }
+}
+
+.font-w600 {
+  font-weight: 600;
+}
+
+.soft-text {
+  color: @softText;
+}
+
+.color1 {
+  color: @color1;
+}
+
+.gray-text {
+  color: @grayText;
+}
+
+.m-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.search {
+  margin: 15px 0 15px 0;
+  font-size: 22px;
+  color: @softText;
+  input {
+    background: none;
+    border: none;
+    color: @mainText;
+    &:focus {
+      outline: none;
+    }
+  }
+}

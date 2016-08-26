@@ -1,0 +1,32 @@
+<div class="container projects">
+  <div class="search">
+    <span class="glyphicon glyphicon-search"></span>
+    <input type="text" placeholder="Filter projects">
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="add-new" ui-sref="projects.add">
+        <span class="glyphicon glyphicon-plus"></span> Add new project
+      </div>
+    </div>
+    <div class="col-md-4" ng-repeat="item in [{},{},{},{},{},{},{},{}]">
+      <div class="standard-block block full-padding m-bottom-20" ui-sref="projects.info({id:$index})">
+        <div class="pull-right right-text">
+          #{{$index*12532}}
+        </div>
+        <h4 class="color1">Customer Dashboard</h4>
+        <p>Even though hi Task bills itself as “team task management,” its free personal task management software is
+          among the best. </p>
+        <div class="users">
+          <div class="user" ng-repeat="item in [{},{},{},{},{},{}]">
+            <img src="http://placehold.it/350x350">
+          </div>
+          <div class="all-users gray-text">
+            5 more
+            <small class="glyphicon glyphicon-menu-right"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
