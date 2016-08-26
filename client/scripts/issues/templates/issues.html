@@ -49,12 +49,23 @@
             #BD-102
           </div>
           <div class="head">
-            Улучшение страницы транзакции
-            <span class="status" ng-style="{background: '#2ecc71'}">
-              Submitted
+            <span class="status" ng-style="{background: '#2ecc71'}"
+                  uib-dropdown auto-close="outsideClick">
+              <span uib-dropdown-toggle>Submitted <small class="glyphicon glyphicon-menu-down"></small> </span>
+                <ul class="dropdown" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+                  <li>Reopened</li>
+                  <li>Pause</li>
+                  <li>Testing required</li>
+                  <li>Verified</li>
+                  <li>Fixed</li>
+                </ul>
             </span>
+            Улучшение страницы транзакции
           </div>
-          <ul>
+          <div class="issue">
+            main
+          </div>
+          <ul class="fields">
             <li>
               <span>Assignee</span>
               Sergey Nikolaev
