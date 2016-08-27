@@ -1,102 +1,103 @@
 <main class="container tasks">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="header">
-        Filters
-      </div>
-      <div class="block standard-block">
-        <ul>
-          <li>
-            Big data
-          </li>
-          <li>
-            Piz data
-          </li>
-          <li>
-            Small data
-          </li>
-        </ul>
-      </div>
-
-      <div class="header">
-        Tags
-      </div>
-      <div class="block standard-block">
-        <ul>
-          <li>
-            Best
-          </li>
-          <li>
-            Important
-          </li>
-          <li>
-            Closed
-          </li>
-          <li>
-            Archive
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="search">
-        <span class="glyphicon glyphicon-search"></span>
-        <input type="text" placeholder="Enter search request">
-      </div>
-      <div class="tasks-list">
-        <div class="task row" ng-repeat="item in [{},{},{},{},{},{},{},{},{},{},{},{},{}]">
-          <div class="pull-right font-w600 soft-text">
-            #BD-102
-          </div>
-          <div class="head">
-            <span class="status" ng-style="{background: '#2ecc71'}"
-                  uib-dropdown auto-close="outsideClick">
-              <span uib-dropdown-toggle>Submitted <small class="glyphicon glyphicon-menu-down"></small> </span>
-                <ul class="dropdown" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
-                  <li>Reopened</li>
-                  <li>Pause</li>
-                  <li>Testing required</li>
-                  <li>Verified</li>
-                  <li>Fixed</li>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="header">
+                Filters
+            </div>
+            <div class="block standard-block">
+                <ul>
+                    <li>
+                        Big data
+                    </li>
+                    <li>
+                        Piz data
+                    </li>
+                    <li>
+                        Small data
+                    </li>
                 </ul>
-            </span>
-            Улучшение страницы транзакции
-          </div>
-          <div class="issue">
-            main
-          </div>
-          <ul class="fields">
-            <li>
-              <span>Assignee</span>
-              Sergey Nikolaev
-            </li>
-            <li>
-              <span>Type</span>
-              New feature
-            </li>
-            <li>
-              <span>Priority</span>
-              High
-            </li>
-            <li>
-              <span>Subsystem</span>
-              Design
-            </li>
-            <li>
-              <span>Created</span>
-              9/3/10 12:05 PM
-            </li>
-            <li>
-              <span>Deadline</span>
-              1 day left
-            </li>
-            <li>
-              <span>Time</span>
-              2h/8h
-            </li>
-          </ul>
+            </div>
+
+            <div class="header">
+                Tags
+            </div>
+            <div class="block standard-block">
+                <ul>
+                    <li>
+                        Best
+                    </li>
+                    <li>
+                        Important
+                    </li>
+                    <li>
+                        Closed
+                    </li>
+                    <li>
+                        Archive
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
+        <div class="col-md-9">
+            <div class="search">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" placeholder="Enter search request">
+            </div>
+            <div class="tasks-list">
+                <div class="task row" ng-repeat="item in [{},{},{},{},{},{},{},{},{},{},{},{},{}]">
+                    <div class="pull-right font-w600 soft-text">
+                        <span class="glyphicon glyphicon-star-empty big-icon"></span>
+                        <span class="glyphicon glyphicon-cog big-icon"></span>
+                    </div>
+                    <div class="head">
+                        <span class="status" ng-style="{background: '#2ecc71'}"
+                              uib-dropdown auto-close="outsideClick">
+                          <span uib-dropdown-toggle>Submitted <small
+                                  class="glyphicon glyphicon-menu-down"></small> </span>
+                            <ul class="dropdown" uib-dropdown-menu role="menu"
+                                aria-labelledby="btn-append-to-single-button">
+                              <li>Reopened</li>
+                              <li>Pause</li>
+                              <li>Testing required</li>
+                              <li>Verified</li>
+                              <li>Fixed</li>
+                            </ul>
+                        </span>
+                        Улучшение страницы транзакции
+                    </div>
+                    <div class="issue" issue ng-if="$index === 1"></div>
+                    <ul class="fields">
+                        <li>
+                            <span>Assignee</span>
+                            Sergey Nikolaev
+                        </li>
+                        <li>
+                            <span>Type</span>
+                            New feature
+                        </li>
+                        <li>
+                            <span>Priority</span>
+                            High
+                        </li>
+                        <li>
+                            <span>Subsystem</span>
+                            Design
+                        </li>
+                        <li>
+                            <span>Created</span>
+                            9/3/10 12:05 PM
+                        </li>
+                        <li>
+                            <span>Deadline</span>
+                            1 day left
+                        </li>
+                        <li>
+                            <span>Time</span>
+                            2h/8h
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </main>

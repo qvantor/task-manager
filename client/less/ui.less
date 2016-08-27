@@ -108,6 +108,35 @@ body {
     }
   }
 }
+
+.big-icon {
+  font-size: 18px;
+}
+
+ul.tabs {
+  margin: 0 -15px;
+  padding: 0 15px 0 15px;
+
+  border-bottom: 1px solid @bg3;
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px 10px 5px 10px;
+    span {
+      margin-right: 5px;
+    }
+
+    &.active {
+      color: @mainText;
+      border-bottom: 3px solid @color1;
+    }
+    &:first-child {
+      padding-left: 0px;
+    }
+  }
+}
+
 ul.dropdown {
   padding: 0px;
   margin: 0px;

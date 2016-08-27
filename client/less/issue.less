@@ -1,3 +1,75 @@
 .issue {
+  margin: 15px 0;
 
+  .issue-text {
+    margin: 15px 0px;
+  }
+  .comments {
+    margin: 10px 0px;
+
+    .comment {
+      .tr;
+      position: relative;
+      margin: 0px -15px;
+      padding: 7px 15px;
+
+      &:hover {
+        background: @bg2;
+
+      }
+      .photo {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        width: 30px;
+        display: inline-block;
+        margin-right: 15px;
+      }
+      .comment-body {
+        margin-left: 45px;
+        display: inline-block;
+
+        .name {
+          color: @color4;
+          font-size: 12px;
+          font-weight: 600;
+        }
+        .date {
+          font-size: 10px;
+          color: @grayText;
+        }
+        .text {
+          font-size: 13px;
+        }
+      }
+      .right {
+        position: absolute;
+        right: 15px;
+        color: @softText;
+      }
+    }
+  }
+  .add-comment {
+    margin: 0px -15px;
+    padding: 0px 15px;
+    border-top: 1px solid @bg3;
+    .open {
+      .tr;
+      width: 50px;
+      margin: 0px auto;
+      text-align: center;
+      border: 1px solid @bg3;
+      border-top: none;
+      border-bottom-right-radius: 100px;
+      border-bottom-left-radius: 100px;
+
+      &:hover {
+        width: 150px;
+        background: @color1;
+        color: @bg1;
+        border: 1px solid @color1;
+        border-top: none;
+      }
+    }
+  }
 }
