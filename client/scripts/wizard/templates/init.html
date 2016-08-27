@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h3>Invite your team in Slimp</h3>
+            <div class="block standard-block full-padding">
+                <form class="form" name="form">
+                    <div class="input row">
+                        <div class="col-xs-9" ng-class="{valid: form.name.$valid}">
+                            <label>Team name</label>
+                            <input type="text" ng-model="vm.team.name" name="name" required
+                                   ng-maxlength="45"
+                                   ng-minlength="3">
+                            <div class="error" ng-if="!form.name.$valid && form.name.$dirty">
+                                Name is not valid
+                            </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                            <span class="glyphicon glyphicon-info-sign"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Min length 3, Max length 45 characters"
+                                  tooltip-append-to-body="true"></span>
+                        </div>
+                    </div>
+                    <div class="input row">
+                        <div class="col-xs-9">
+                            <label>Member №1</label>
+                            iintersergey@gmail.com
+                        </div>
+                        <div class="col-xs-3 text-right">
+                            <span class="glyphicon glyphicon-plus"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Add new member"
+                                  tooltip-append-to-body="true"
+                                  ng-click="vm.team.list.push({})"></span>
+                        </div>
+                    </div>
+                    <div class="input row" ng-repeat="item in vm.team.list track by $index">
+                        <div class="col-xs-9" ng-class="{valid: item.email}">
+                            <label>Member № {{$index + 2}}</label>
+                            <input type="email" ng-model="item.email" required name="email{{$index}}"
+                                   placeholder="Email">
+                            <div class="error" ng-if="!form['email' + $index].$valid && form['email' + $index].$dirty">
+                                Email is not valid
+                            </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                            <span class="glyphicon glyphicon-plus"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Add new member"
+                                  tooltip-append-to-body="true"
+                                  ng-click="vm.team.list.push({})"></span>
+                            <span class="glyphicon glyphicon-minus"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Do not invite this member"
+                                  tooltip-append-to-body="true"
+                                  ng-click="vm.remove($index)"></span>
+                            <span class="glyphicon glyphicon-info-sign"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Add member Email to invite him into the team"
+                                  tooltip-append-to-body="true"></span>
+                        </div>
+                    </div>
+                    <div class="button" ng-click="vm.createTeam()">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Invite team
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

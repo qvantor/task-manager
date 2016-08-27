@@ -4,16 +4,14 @@
   angular.module('app.core')
     .factory('httpInterceptor', httpInterceptor);
 
-  httpInterceptor.$inject = ['conf', '$cookies'];
+  httpInterceptor.$inject = ['$cookies'];
 
-  function httpInterceptor(conf, $cookies) {
+  function httpInterceptor($cookies) {
     return {
       request: function (config) {
         if (/\.html/g.test(config.url)) {
           return config;
         }
-
-        config.url = conf.url + config.url;
 
         if ($cookies.get('accessTokenId')) {
           config.headers['X-Access-Token'] = $cookies.get('accessTokenId');

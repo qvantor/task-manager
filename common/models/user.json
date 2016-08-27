@@ -9,6 +9,13 @@
   "properties": {},
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "inviteInTeam"
+    }
+  ],
   "methods": {}
 }

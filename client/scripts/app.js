@@ -8,7 +8,9 @@
     'app.core',
     'app.auth',
     'app.projects',
-    'app.issues'
+    'app.issues',
+    'app.wizard',
+    'app.services'
   ])
     .config(configState)
     .run(run);
@@ -17,7 +19,7 @@
   run.$inject = ['$rootScope', '$state'];
 
   function configState($stateProvider, $urlRouterProvider, $httpProvider) {
-    // $httpProvider.interceptors.push('httpInterceptor');
+    $httpProvider.interceptors.push('httpInterceptor');
 
     $stateProvider
       .state('root', {

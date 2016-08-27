@@ -20,7 +20,7 @@
     input {
       border: none;
       background: transparent;
-      width: 70%;
+      width: 65%;
 
       &:focus {
         outline: none;
@@ -48,7 +48,7 @@
         }
       }
     }
-    .pull-right {
+    .pull-right, .text-right {
       color: @softText;
       span {
         margin-left: 10px;
@@ -72,5 +72,21 @@
   }
   h4 {
     color: @color4;
+  }
+  .button{
+    .tr;
+    text-align: center;
+    background: @color1;
+    color: @bg1;
+    margin: 0px -15px -15px -15px;
+    padding: 10px;
+
+    &:hover{
+      background: lighten(@color1, 10%);
+    }
+  }
+  .error{
+    color: @color2;
+    font-size: 11px;
   }
 }
