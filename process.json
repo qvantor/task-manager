@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "worker",
+      "script": "server/server.js",
+      "watch": ["server", "common"],
+      "ignore_watch" : ["client"]
+    }
+  ]
+}

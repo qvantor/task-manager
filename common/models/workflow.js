@@ -1,3 +1,3 @@
-module.exports = function(Workflow) {
-
+module.exports = function (Workflow) {
+  require('./workflow/getWithFields')(Workflow);
 };

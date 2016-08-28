@@ -86,6 +86,13 @@ body {
 .color1 {
   color: @color1;
 }
+.color2{
+  color: @color2;
+}
+
+.white-text {
+  color: @bg1;
+}
 
 .gray-text {
   color: @grayText;
@@ -103,13 +110,14 @@ body {
   margin: 15px 0 15px 0;
   font-size: 22px;
   color: @softText;
-  input {
-    background: none;
-    border: none;
-    color: @mainText;
-    &:focus {
-      outline: none;
-    }
+}
+
+input {
+  background: none;
+  border: none;
+  color: @mainText;
+  &:focus {
+    outline: none;
   }
 }
 

@@ -24,6 +24,14 @@
           }
         }
       })
+      .state('wizard.workflow', {
+        url: '/workflow',
+        views: {
+          "content@root": {
+            template: ' <div workflow-editor></div>'
+          }
+        }
+      })
       .state('wizard.project', {
         url: '/project',
         views: {

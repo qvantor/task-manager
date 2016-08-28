@@ -6,6 +6,7 @@
     'ng-sortable',
 
     'app.core',
+    'app.layout',
     'app.auth',
     'app.projects',
     'app.issues',

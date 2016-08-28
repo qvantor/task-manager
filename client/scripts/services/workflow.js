@@ -11,8 +11,13 @@
       return req.option('workflows', null, 'GET', null, true);
     }
 
+    function getWithFields(id) {
+      return req.option('/Workflows/getWithFields/' + id, null, 'GET', null, true);
+    }
+
     return {
-      getAll: getAll
+      getAll: getAll,
+      getWithFields: getWithFields
     };
   }
 

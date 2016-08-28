@@ -26,7 +26,7 @@
         team.create({name: vm.team.name}).then(function (data) {
           vm.team.id = data.id;
           user.inviteInTeam({list: vm.team.list}).then(function (data) {
-            $state.go('wizard.project');
+            $state.go('wizard.workflow');
           });
         })
       }

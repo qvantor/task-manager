@@ -1,0 +1,16 @@
+<span class="{{icon}}"
+      ng-class="{'glyphicon-edit': editable && !icon}"
+      uib-popover-template="'pickIconPopover.html'"
+      popover-placement="bottom"
+      popover-enable="editable"
+      popover-trigger="'outsideClick'"
+
+      uib-tooltip="Click to change icon"
+      tooltip-append-to-body="true">
+</span>
+<script type="text/ng-template" id="pickIconPopover.html">
+    <div class="pickIcon">
+        <span ng-class="i" ng-repeat="i in icons" ng-click="setIcon(i)"></span>
+        <div class="without" ng-click="setIcon(null)">Without icon</div>
+    </div>
+</script>

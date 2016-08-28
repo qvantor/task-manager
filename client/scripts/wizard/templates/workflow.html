@@ -1,31 +1,40 @@
-<div class="col-md-6">
-    <h3>Workflow</h3>
-    <div class="block standard-block full-padding">
-        <div class="input">
-            <label>Preset</label>
-            <div uib-dropdown auto-close="outsideClick" class="inline">
-                <input type="text" uib-dropdown-toggle value="Software development"/>
-                <ul class="dropdown-menu" uib-dropdown-menu role="menu"
-                    aria-labelledby="btn-append-to-single-button">
-                    <li>Software development</li>
-                    <li>Project management</li>
-                    <li>Process management</li>
-                </ul>
+<div class="container">
+    <form class="form row">
+        <div class="col-md-4">
+            <h3>Workflow</h3>
+            <div class="block standard-block full-padding">
+                <div class="input row">
+                    <div class="col-xs-9">
+                        <label>Workflow</label>
+                        <select ng-model="workflowId" required name="team" ng-change="getWithFields()">
+                            <option value="{{workflow.id}}"
+                                    ng-repeat="workflow in workflow.list">{{workflow.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <span class="glyphicon glyphicon-info-sign"
+                              tooltip-placement="bottom"
+                              uib-tooltip="Workflow setup all custom project fields"
+                              tooltip-append-to-body="true"
+                              ng-click="editable = !editable"></span>
+                    </div>
+                </div>
+                <div>
+                  {{fullWorkFlow.desc}}
+                </div>
             </div>
         </div>
-        <div class="sort">
-            <label>Issue Types</label>
-            <!-- здесь сделать возможность редактировать и добавлять типы, каждому типу можно задать цвет -->
-            <ul ng-sortable="{animation150}">
-                <li>Submitted</li>
-                <li>Reopened</li>
-                <li>Pause</li>
-                <li>Testing required</li>
-                <li>Verified</li>
-                <li>Fixed</li>
-            </ul>
+        <div class="col-md-8">
+            <h3>Additional issue fields</h3>
+            <div class="block standard-block full-padding">
+                <div ng-repeat="field in fullWorkFlow.fields" ng-if="$index % 3 == 0" class="row m-bottom-20">
+                    <div field-item="field" editable="editable"></div>
+                    <div field-item="fullWorkFlow.fields[$index + 1]" ng-if="fullWorkFlow.fields[$index + 1]"
+                         editable="editable"></div>
+                    <div field-item="fullWorkFlow.fields[$index + 2]" ng-if="fullWorkFlow.fields[$index + 2]"
+                         editable="editable"></div>
+                </div>
+            </div>
         </div>
-        <label>Custom fields</label>
-        <h5>Create here custom fields builder</h5>
-    </div>
+    </form>
 </div>

@@ -1,0 +1,27 @@
+<div class="col-sm-4 fieldItem" ng-class="{editable: editable}">
+    <div class="head-input">
+        <input ng-model="field.title" class="soft-text font-w600" ng-disabled="!editable">
+        <div class="pull-right only-editable">
+            <small class="glyphicon glyphicon-plus"></small>
+            <small class="glyphicon glyphicon-minus"
+                   tooltip-placement="bottom"
+                   uib-tooltip="Remove field"
+                   tooltip-append-to-body="true"></small>
+        </div>
+    </div>
+    <ul ng-sortable>
+        <li ng-repeat="item in field.items" ng-style="{background: item.color}"
+            ng-class="{'white-text': item.color !== null}">
+            <span pick-icon="item.icon" editable="editable"></span>
+            <input ng-model="item.title"
+                   class="inline"
+                   style="width: 75%"
+                   ng-class="{'white-text': item.color !== null}" ng-disabled="!editable">
+
+            <div class="pull-right only-editable">
+                <small class="glyphicon glyphicon-plus"></small>
+                <small class="glyphicon glyphicon-minus"></small>
+            </div>
+        </li>
+    </ul>
+</div>
