@@ -26,14 +26,6 @@
             templateUrl: 'scripts/projects/templates/project.html'
           }
         }
-      })
-      .state('projects.add', {
-        url: '/add',
-        views: {
-          "content@root": {
-            templateUrl: 'scripts/projects/templates/add.html'
-          }
-        }
       });
   }
 })();

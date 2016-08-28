@@ -35,5 +35,21 @@
   "Team": {
     "dataSource": "db",
     "public": true
+  },
+  "Project": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Field": {
+    "dataSource": "db",
+    "public": true
+  },
+  "FieldItems": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Workflow": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,6 +1,6 @@
 module.exports = function (user) {
   user.inviteInTeam = function (list, cb) {
-    cb(null, list);
+    cb(null, {});
   };
 
   user.remoteMethod(

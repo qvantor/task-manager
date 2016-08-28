@@ -3,11 +3,11 @@
 
   angular
     .module('app.wizard')
-    .controller('initCtrl', initCtrl);
+    .controller('teamCtrl', teamCtrl);
 
-  initCtrl.$inject = ['$scope', 'teamService', 'userService'];
+  teamCtrl.$inject = ['$scope', 'teamService', 'userService', '$state'];
 
-  function initCtrl($scope, team, user) {
+  function teamCtrl($scope, team, user, $state) {
     var vm = this;
     vm.team = {
       name: null,
@@ -26,7 +26,7 @@
         team.create({name: vm.team.name}).then(function (data) {
           vm.team.id = data.id;
           user.inviteInTeam({list: vm.team.list}).then(function (data) {
-            console.log(data);
+            $state.go('wizard.project');
           });
         })
       }

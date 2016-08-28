@@ -12,8 +12,13 @@
       return req.option('teams', null, 'POST', data);
     }
 
+    function getAll() {
+      return req.option('teams', null, 'GET', null, true);
+    }
+
     return {
-      create: create
+      create: create,
+      getAll: getAll
     };
   }
 

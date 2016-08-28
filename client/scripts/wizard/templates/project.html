@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <form class="col-md-6 form" name="form">
+            <h3>Create new project</h3>
+            <div class="block standard-block full-padding">
+                <div class="input row">
+                    <div class="col-xs-9" ng-class="{valid: form.name.$valid}">
+                        <label>Name</label>
+                        <input type="text" ng-model="vm.project.name"
+                               ng-change="vm.createAlias()"
+                               name="name"
+                               required
+                               ng-maxlength="45"
+                               ng-minlength="3">
+                        <div class="error" ng-if="!form.name.$valid && form.name.$dirty">
+                            Name is not valid
+                        </div>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                            <span class="glyphicon glyphicon-info-sign"
+                                  tooltip-placement="bottom"
+                                  uib-tooltip="Min length 3, Max length 45 characters"
+                                  tooltip-append-to-body="true"></span>
+                    </div>
+                </div>
+                <div class="input row">
+                    <div class="col-xs-9">
+                        <label>Alias</label>
+                      {{vm.project.alias}}
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <span class="glyphicon glyphicon-info-sign"
+                              tooltip-placement="bottom"
+                              uib-tooltip="It prefixes each issue in the project"
+                              tooltip-append-to-body="true"></span>
+                    </div>
+                </div>
+                <div class="input row">
+                    <div class="col-xs-12">
+                        <label>Description</label>
+                        <textarea ng-model="vm.project.desc"></textarea>
+                    </div>
+                </div>
+                <div class="input row">
+                    <div class="col-xs-9">
+                        <label>Workflow</label>
+                        <select ng-model="vm.project.workflowId" required name="workflow">
+                            <option value="{{workflow.id}}"
+                                    ng-repeat="workflow in vm.workflowList">{{workflow.name}}</option>
+                        </select>
+                        <div class="error" ng-if="!form.workflow.$valid">
+                            Workflow must be set
+                        </div>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <span class="glyphicon glyphicon-info-sign"
+                              tooltip-placement="bottom"
+                              uib-tooltip="Workflow setup all custom project fields"
+                              tooltip-append-to-body="true"></span>
+                    </div>
+                </div>
+                <div class="input row">
+                    <div class="col-xs-9">
+                        <label>Team</label>
+                        <select ng-model="vm.project.teamId" required name="team">
+                            <option value="{{team.id}}" ng-repeat="team in vm.teamList">{{team.name}}</option>
+                        </select>
+                        <div class="error" ng-if="!form.team.$valid">
+                            Team must be set
+                        </div>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <span class="glyphicon glyphicon-info-sign"
+                              tooltip-placement="bottom"
+                              uib-tooltip="Team which will work on project"
+                              tooltip-append-to-body="true"></span>
+                    </div>
+                </div>
+                <div class="button" ng-click="vm.createProject()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Create project
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -14,12 +14,22 @@
         parent: 'root',
         url: '/wizard'
       })
-      .state('wizard.init', {
-        url: '/init',
+      .state('wizard.team', {
+        url: '/team',
         views: {
           "content@root": {
-            templateUrl: 'scripts/wizard/templates/init.html',
-            controller: 'initCtrl',
+            templateUrl: 'scripts/wizard/templates/team.html',
+            controller: 'teamCtrl',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('wizard.project', {
+        url: '/project',
+        views: {
+          "content@root": {
+            templateUrl: 'scripts/wizard/templates/project.html',
+            controller: 'projectCtrl',
             controllerAs: 'vm'
           }
         }
