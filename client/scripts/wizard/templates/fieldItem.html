@@ -2,25 +2,22 @@
     <div class="head-input">
         <input ng-model="field.title" class="soft-text font-w600" ng-disabled="!editable">
         <div class="pull-right only-editable">
-            <small class="glyphicon glyphicon-plus"></small>
-            <small class="glyphicon glyphicon-minus"
-                   tooltip-placement="bottom"
-                   uib-tooltip="Remove field"
-                   tooltip-append-to-body="true"></small>
+            <small class="glyphicon glyphicon-plus" ng-click="fieldsEdit.addField(index)"></small>
+            <small class="glyphicon glyphicon-minus" ng-click="fieldsEdit.removeField(index)"></small>
         </div>
     </div>
     <ul ng-sortable>
-        <li ng-repeat="item in field.items" ng-style="{background: item.color}"
-            ng-class="{'white-text': item.color !== null}">
+        <li class="item" ng-repeat="item in field.items">
             <span pick-icon="item.icon" editable="editable"></span>
+            <span ng-style="{color: item.color}" pick-color="item" editable="editable"></span>
             <input ng-model="item.title"
                    class="inline"
-                   style="width: 75%"
-                   ng-class="{'white-text': item.color !== null}" ng-disabled="!editable">
-
+                   ng-disabled="!editable">
             <div class="pull-right only-editable">
-                <small class="glyphicon glyphicon-plus"></small>
-                <small class="glyphicon glyphicon-minus"></small>
+                <small class="glyphicon glyphicon-plus" ng-if="$last && field.items.length < 10"
+                       ng-click="addItem()"></small>
+                <small class="glyphicon glyphicon-minus" ng-click="removeItem($index)"
+                       ng-if="field.items.length > 2"></small>
             </div>
         </li>
     </ul>

@@ -4,6 +4,7 @@
     'ui.router',
     'ui.bootstrap',
     'ng-sortable',
+    'mp.colorPicker',
 
     'app.core',
     'app.layout',

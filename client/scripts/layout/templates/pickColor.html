@@ -1,0 +1,16 @@
+<span class="flaticon-paint-drop pickColor"
+      uib-popover-template="'pickColorPopover.html'"
+      popover-placement="bottom"
+      popover-enable="editable"
+      popover-trigger="'outsideClick'"></span>
+<script type="text/ng-template" id="pickColorPopover.html">
+    <div class="pickColor">
+        <color-picker ng-model="color.color">
+        </color-picker>
+
+        <input type="text"
+               class="pick"
+               ng-model="color.color"
+               style="width: 100%">
+    </div>
+</script>

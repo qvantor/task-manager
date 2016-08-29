@@ -1,4 +1,4 @@
 .idea
 node_modules
 client/bower
-client/css
+client/css/core.css

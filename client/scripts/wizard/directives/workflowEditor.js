@@ -24,6 +24,11 @@
       getAll();
       scope.getWithFields = getWithFields;
 
+      scope.fieldsEdit = {
+        addField: addField,
+        removeField: removeField
+      };
+
       function getAll() {
         workflow.getAll().then(function (data) {
           scope.workflow.list = data;
@@ -34,6 +39,17 @@
         workflow.getWithFields(scope.workflowId).then(function (data) {
           scope.fullWorkFlow = data;
         });
+      }
+
+      function addField(index) {
+        scope.fullWorkFlow.fields.splice(index + 1, 0, {
+          title: 'Field' + scope.fullWorkFlow.fields.length,
+          items: [{title: 'Item1', color: null}, {title: 'Item2', color: null}]
+        });
+      }
+
+      function removeField(index) {
+        scope.fullWorkFlow.fields.splice(index, 1);
       }
     }
   }

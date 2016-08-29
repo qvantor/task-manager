@@ -28,11 +28,23 @@
             <h3>Additional issue fields</h3>
             <div class="block standard-block full-padding">
                 <div ng-repeat="field in fullWorkFlow.fields" ng-if="$index % 3 == 0" class="row m-bottom-20">
-                    <div field-item="field" editable="editable"></div>
-                    <div field-item="fullWorkFlow.fields[$index + 1]" ng-if="fullWorkFlow.fields[$index + 1]"
-                         editable="editable"></div>
-                    <div field-item="fullWorkFlow.fields[$index + 2]" ng-if="fullWorkFlow.fields[$index + 2]"
-                         editable="editable"></div>
+                    <div field-item="field"
+                         editable="editable"
+                         index="$index"
+                         fields-edit="fieldsEdit"></div>
+                    <div field-item="fullWorkFlow.fields[$index + 1]"
+                         ng-if="fullWorkFlow.fields[$index + 1]"
+                         editable="editable"
+                         index="$index + 1"
+                         fields-edit="fieldsEdit"></div>
+                    <div field-item="fullWorkFlow.fields[$index + 2]"
+                         ng-if="fullWorkFlow.fields[$index + 2]"
+                         editable="editable"
+                         index="$index + 2"
+                         fields-edit="fieldsEdit"></div>
+                </div>
+                <div ng-if="fullWorkFlow.fields.length === 0">
+                    Zero
                 </div>
             </div>
         </div>
