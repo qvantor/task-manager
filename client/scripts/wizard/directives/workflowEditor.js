@@ -19,6 +19,7 @@
     function link(scope, element) {
       scope.workflow = {};
       scope.editable = false;
+
       getAll();
       scope.getWithFields = getWithFields;
 
@@ -43,6 +44,7 @@
       function getWithFields() {
         workflow.getWithFields(scope.workflow.selected.id).then(function (data) {
           scope.fullWorkFlow = data;
+          scope.fullWorkFlow.replace = true;
         });
       }
 
@@ -59,16 +61,13 @@
 
       function editableMode() {
         scope.editable = true;
-        scope.fullWorkFlow.name = 'New workflow (' + scope.fullWorkFlow.name + ')';
       }
 
       function unEditableMode() {
         scope.editable = false;
-        scope.fullWorkFlow.name = scope.workflow.selected.name;
       }
 
       function saveWorkflow() {
-        console.log(scope.fullWorkFlow);
         workflow.createWithFields(scope.fullWorkFlow).then(function (data) {
           console.log(data);
         });
