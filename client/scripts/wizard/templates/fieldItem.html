@@ -9,10 +9,9 @@
         </div>
     </div>
     <ul ng-sortable="sortable">
-        <li class="item row" ng-repeat="item in field.itemsList">
+        <li class="item row" ng-repeat="item in field.itemsList | orderBy: 'order'">
             <div class="col-xs-3 no-padding-right text-center">
                 <span pick-icon="item.icon" editable="editable"></span>
-
                 <span ng-if="item.color || editable" ng-style="{color: item.color}" pick-color="item"
                       editable="editable"></span>
             </div>

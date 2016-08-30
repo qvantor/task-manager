@@ -64,7 +64,7 @@
         <div class="col-md-8">
             <h3>Additional issue fields</h3>
             <div class="block standard-block full-padding">
-                <div ng-repeat="field in fullWorkFlow.fieldsList" ng-if="$index % 3 == 0" class="row m-bottom-20">
+                <div ng-repeat="field in fullWorkFlow.fieldsList | orderBy: 'order'" ng-if="$index % 3 == 0" class="row m-bottom-20">
                     <div field-item="field"
                          editable="editable"
                          index="$index"

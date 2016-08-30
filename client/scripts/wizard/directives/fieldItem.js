@@ -25,7 +25,12 @@
       vm.sortable = {
         sort: true,
         delay: 0,
-        disabled: !vm.editable
+        disabled: !vm.editable,
+        onEnd: function (evt) {
+          evt.models.forEach(function (item, i) {
+            item.order = i;
+          });
+        }
       };
 
       vm.addItem = addItem;
@@ -35,7 +40,8 @@
         if (vm.field.itemsList.length < 10)
           vm.field.itemsList.push({
             title: 'Item' + (vm.field.itemsList.length + 1),
-            color: null
+            color: null,
+            order: vm.field.itemsList.length
           });
       }
 

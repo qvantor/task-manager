@@ -51,7 +51,7 @@
       function addField(index) {
         scope.fullWorkFlow.fieldsList.splice(index + 1, 0, {
           title: 'Field' + scope.fullWorkFlow.fieldsList.length,
-          itemsList: [{title: 'Item1', color: null}, {title: 'Item2', color: null}]
+          itemsList: [{title: 'Item1', order: 0}, {title: 'Item2', order: 1}]
         });
       }
 
@@ -68,8 +68,11 @@
       }
 
       function saveWorkflow() {
+        scope.fullWorkFlow.fieldsList.forEach(function (item, i) {
+          item.order = i;
+        });
         workflow.createWithFields(scope.fullWorkFlow).then(function (data) {
-          console.log(data);
+          scope.editable = false;
         });
       }
     }
