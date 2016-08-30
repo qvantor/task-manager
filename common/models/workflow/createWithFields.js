@@ -1,21 +1,48 @@
 module.exports = function (wf) {
-  wf.createWithFields = function (id, name, desc, fields, cb) {
-    wf.create({
-      name: name,
-      desc: desc
-    }).then(function (workflow) {
-      fields.forEach(function (field) {
-        workflow.fields.create(field, function (er, f) {
-          if(er) throw er;
+  wf.createWithFields = function (id, name, desc, fields, replace, cb) {
+    if (replace) {
+      wf.findById(id).then(function (workflow) {
+        var all = [];
+        workflow.fields(function (err, fields) {
+          if (err) throw err;
 
-          field.itemsList.forEach(function (item) {
-            f.items.create(item);
+          fields.forEach(function (field) {
+            all.push(field.items.destroyAll());
+          });
+          Promise.all(all).then(function () {
+            workflow.fields.destroyAll().then(
+              function () {
+                wf.deleteById(id).then(function () {
+                  create();
+                })
+              });
           });
         });
       });
+    } else {
+      create();
+    }
+    function create() {
+      wf.create({
+        id: replace ? id : null,
+        name: name,
+        desc: desc
+      }).then(function (workflow) {
+        fields.forEach(function (field) {
+          if (!replace) field.id = null;
+          workflow.fields.create(field, function (er, f) {
+            if (er) throw er;
 
-      cb(null, workflow);
-    });
+            field.itemsList.forEach(function (item) {
+              if (!replace) item.id = null;
+              f.items.create(item);
+            });
+          });
+        });
+
+        cb(null, workflow);
+      });
+    }
   };
 
   wf.remoteMethod(
@@ -33,6 +60,9 @@ module.exports = function (wf) {
         },
         {
           arg: 'fieldsList', type: 'array', required: true
+        },
+        {
+          arg: 'replace', type: 'boolean', required: true
         }
       ],
       http: {path: '/createWithFields', verb: 'POST'},

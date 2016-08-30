@@ -3,9 +3,7 @@ module.exports = function (wf) {
     var Field = this.app.models.Field;
     var FieldItems = this.app.models.FieldItems;
 
-    wf.findById(id, function (er, workflow) {
-      if (er) throw er;
-
+    wf.findById(id).then(function (workflow) {
       if (!workflow) {
         cb(null, {});
       }

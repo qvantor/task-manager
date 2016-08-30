@@ -41,18 +41,18 @@
                               ng-click="unEditableMode()"></span>
                     </div>
                 </div>
-                <!--<div class="input row" ng-if="editable">-->
-                <!--<div class="col-xs-10">-->
-                <!--<label>Replace</label>-->
-                <!--<span class="glyphicon glyphicon-info-sign text-right"-->
-                <!--tooltip-placement="bottom"-->
-                <!--uib-tooltip="If Replace will save changes without create new workflow"-->
-                <!--tooltip-append-to-body="true"></span>-->
-                <!--</div>-->
-                <!--<div class="col-xs-2">-->
-                <!--<span switch="fullWorkFlow.replace"></span>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div class="input row" ng-if="editable">
+                    <div class="col-xs-10">
+                        <label>Replace</label>
+                        <span class="glyphicon glyphicon-info-sign text-right"
+                              tooltip-placement="bottom"
+                              uib-tooltip="If Replace will save changes without create new workflow"
+                              tooltip-append-to-body="true"></span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span switch="fullWorkFlow.replace"></span>
+                    </div>
+                </div>
                 <div class="input row">
                     <div class="col-xs-12">
                         <label>Description</label>
@@ -64,7 +64,7 @@
         <div class="col-md-8">
             <h3>Additional issue fields</h3>
             <div class="block standard-block full-padding">
-                <div ng-repeat="field in fullWorkFlow.fieldsList" ng-if="$index % 3 == 0" class="row m-bottom-20">
+                <div ng-repeat="field in fullWorkFlow.fieldsList | orderBy: 'order'" ng-if="$index % 3 == 0" class="row m-bottom-20">
                     <div field-item="field"
                          editable="editable"
                          index="$index"
