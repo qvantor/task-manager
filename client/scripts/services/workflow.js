@@ -15,9 +15,14 @@
       return req.option('/Workflows/getWithFields/' + id, null, 'GET', null, true);
     }
 
+    function createWithFields(data) {
+      return req.option('Workflows/createWithFields', null, 'POST', data, true);
+    }
+
     return {
       getAll: getAll,
-      getWithFields: getWithFields
+      getWithFields: getWithFields,
+      createWithFields: createWithFields
     };
   }
 

@@ -14,14 +14,9 @@
         color: '=pickColor',
         editable: '='
       },
-      templateUrl: 'scripts/layout/templates/pickColor.html',
-      link: link
+      templateUrl: 'scripts/layout/templates/pickColor.html'
     };
     return directive;
-
-    function link(scope, element) {
-
-    }
   }
 })
 ();

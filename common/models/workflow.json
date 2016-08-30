@@ -13,7 +13,7 @@
     "id": {
       "type": "Number",
       "id": true,
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
@@ -61,7 +61,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "fields": {
+      "type": "hasMany",
+      "model": "Field",
+      "foreignKey": "workflowId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

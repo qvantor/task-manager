@@ -10,7 +10,7 @@ module.exports = function (wf) {
         cb(null, {});
       }
 
-      Field.find({where: {workflowId: workflow.id}}, function (er, fields) {
+      workflow.fields(function (er, fields) {
         if (er) throw er;
 
         var ids = [];
@@ -18,21 +18,21 @@ module.exports = function (wf) {
           ids.push(item.id);
         });
 
-        FieldItems.find({where: {fieldId: {inq: ids}}}, function (er, fItems) {
-          if (er) throw er;
+        FieldItems.find({where: {fieldId: {inq: ids}}})
+          .then(function (fItems) {
 
-          fields.forEach(function (field) {
-            fItems.forEach(function (item) {
-              if (field.id === item.fieldId) {
-                field.items ? field.items.push(item) : field.items = [item];
-              }
+            fields.forEach(function (field) {
+              fItems.forEach(function (item) {
+                if (field.id === item.fieldId) {
+                  field.itemsList ? field.itemsList.push(item) : field.itemsList = [item];
+                }
+              });
             });
+
+            workflow.fieldsList = fields;
+
+            cb(null, workflow);
           });
-
-          workflow.fields = fields;
-
-          cb(null, workflow);
-        });
       });
     });
   };

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container workflowEditor">
     <form class="form row">
         <div class="col-md-4">
             <h3>Workflow</h3>
@@ -6,45 +6,87 @@
                 <div class="input row">
                     <div class="col-xs-9">
                         <label>Workflow</label>
-                        <select ng-model="workflowId" required name="team" ng-change="getWithFields()">
-                            <option value="{{workflow.id}}"
-                                    ng-repeat="workflow in workflow.list">{{workflow.name}}</option>
-                        </select>
+                        <div ng-if="!editable" class="inline">
+                            <select ng-model="workflow.selected" name="workflow" ng-change="getWithFields()"
+                                    ng-options="workflow.name for workflow in workflow.list">
+                            </select>
+                        </div>
+                        <div ng-if="editable" class="inline">
+                            <input type="text"
+                                   name="name"
+                                   ng-model="fullWorkFlow.name"
+                                   required
+                                   ng-maxlength="45"
+                                   ng-minlength="3">
+                        </div>
                     </div>
                     <div class="col-xs-3 text-right">
-                        <span class="glyphicon glyphicon-info-sign"
+                        <span class="glyphicon glyphicon-edit"
                               tooltip-placement="bottom"
-                              uib-tooltip="Workflow setup all custom project fields"
+                              uib-tooltip="Edit workflow"
+                              ng-if="!editable"
                               tooltip-append-to-body="true"
-                              ng-click="editable = !editable"></span>
+                              ng-click="editableMode()"></span>
+                        <span class="glyphicon glyphicon-floppy-saved"
+                              tooltip-placement="bottom"
+                              uib-tooltip="Save workflow"
+                              ng-if="editable"
+                              tooltip-append-to-body="true"
+                              ng-click="saveWorkflow()"></span>
+                        <span class="glyphicon glyphicon-floppy-remove"
+                              tooltip-placement="bottom"
+                              uib-tooltip="Discard"
+                              ng-if="editable"
+                              tooltip-append-to-body="true"
+                              ng-click="unEditableMode()"></span>
                     </div>
                 </div>
-                <div>
-                  {{fullWorkFlow.desc}}
+                <!--<div class="input row" ng-if="editable">-->
+                <!--<div class="col-xs-10">-->
+                <!--<label>Replace</label>-->
+                <!--<span class="glyphicon glyphicon-info-sign text-right"-->
+                <!--tooltip-placement="bottom"-->
+                <!--uib-tooltip="If Replace will save changes without create new workflow"-->
+                <!--tooltip-append-to-body="true"></span>-->
+                <!--</div>-->
+                <!--<div class="col-xs-2">-->
+                <!--<span switch="fullWorkFlow.replace"></span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="input row">
+                    <div class="col-xs-12">
+                        <label>Description</label>
+                        <textarea ng-model="fullWorkFlow.desc" style="height: 200px" ng-disabled="!editable"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <h3>Additional issue fields</h3>
             <div class="block standard-block full-padding">
-                <div ng-repeat="field in fullWorkFlow.fields" ng-if="$index % 3 == 0" class="row m-bottom-20">
+                <div ng-repeat="field in fullWorkFlow.fieldsList" ng-if="$index % 3 == 0" class="row m-bottom-20">
                     <div field-item="field"
                          editable="editable"
                          index="$index"
                          fields-edit="fieldsEdit"></div>
-                    <div field-item="fullWorkFlow.fields[$index + 1]"
-                         ng-if="fullWorkFlow.fields[$index + 1]"
+                    <div field-item="fullWorkFlow.fieldsList[$index + 1]"
+                         ng-if="fullWorkFlow.fieldsList[$index + 1]"
                          editable="editable"
                          index="$index + 1"
                          fields-edit="fieldsEdit"></div>
-                    <div field-item="fullWorkFlow.fields[$index + 2]"
-                         ng-if="fullWorkFlow.fields[$index + 2]"
+                    <div field-item="fullWorkFlow.fieldsList[$index + 2]"
+                         ng-if="fullWorkFlow.fieldsList[$index + 2]"
                          editable="editable"
                          index="$index + 2"
                          fields-edit="fieldsEdit"></div>
                 </div>
-                <div ng-if="fullWorkFlow.fields.length === 0">
-                    Zero
+                <div ng-if="fullWorkFlow.fieldsList.length === 0 && editable" class="fileds-empty row">
+                    <div class="add col-xs-4" ng-click="fieldsEdit.addField(0)">
+                        <h4>
+                            <small class="glyphicon glyphicon-plus"></small>
+                            Add field
+                        </h4>
+                    </div>
                 </div>
             </div>
         </div>

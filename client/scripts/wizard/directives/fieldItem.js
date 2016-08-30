@@ -22,21 +22,32 @@
     return directive;
 
     function link(vm, element) {
+      vm.sortable = {
+        sort: true,
+        delay: 0,
+        disabled: !vm.editable
+      };
+
       vm.addItem = addItem;
       vm.removeItem = removeItem;
 
       function addItem() {
-        if (vm.field.items.length < 10)
-          vm.field.items.push({
-            title: 'Item' + (vm.field.items.length + 1),
+        if (vm.field.itemsList.length < 10)
+          vm.field.itemsList.push({
+            title: 'Item' + (vm.field.itemsList.length + 1),
             color: null
           });
       }
 
       function removeItem(index) {
-        if (vm.field.items.length > 2)
-          vm.field.items.splice(index, 1);
+        if (vm.field.itemsList.length > 2)
+          vm.field.itemsList.splice(index, 1);
       }
+
+      vm.$watch('editable', function (n, o) {
+        if (n === o) return;
+        vm.sortable.disabled = !vm.editable;
+      });
     }
   }
 })

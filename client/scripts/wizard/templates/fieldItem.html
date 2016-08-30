@@ -1,23 +1,31 @@
 <div class="col-sm-4 fieldItem" ng-class="{editable: editable}">
-    <div class="head-input">
-        <input ng-model="field.title" class="soft-text font-w600" ng-disabled="!editable">
-        <div class="pull-right only-editable">
+    <div class="head-input row">
+        <div class="col-xs-9">
+            <input ng-model="field.title" class="soft-text font-w600" ng-disabled="!editable">
+        </div>
+        <div class="col-xs-3 only-editable">
             <small class="glyphicon glyphicon-plus" ng-click="fieldsEdit.addField(index)"></small>
             <small class="glyphicon glyphicon-minus" ng-click="fieldsEdit.removeField(index)"></small>
         </div>
     </div>
-    <ul ng-sortable>
-        <li class="item" ng-repeat="item in field.items">
-            <span pick-icon="item.icon" editable="editable"></span>
-            <span ng-style="{color: item.color}" pick-color="item" editable="editable"></span>
-            <input ng-model="item.title"
-                   class="inline"
-                   ng-disabled="!editable">
-            <div class="pull-right only-editable">
-                <small class="glyphicon glyphicon-plus" ng-if="$last && field.items.length < 10"
+    <ul ng-sortable="sortable">
+        <li class="item row" ng-repeat="item in field.itemsList">
+            <div class="col-xs-3 no-padding-right text-center">
+                <span pick-icon="itemsList.icon" editable="editable"></span>
+
+                <span ng-if="item.color || editable" ng-style="{color: item.color}" pick-color="item"
+                      editable="editable"></span>
+            </div>
+            <div class="col-xs-6 no-padding">
+                <input ng-model="item.title"
+                       class="inline"
+                       ng-disabled="!editable">
+            </div>
+            <div class="col-xs-3 only-editable">
+                <small class="glyphicon glyphicon-plus" ng-if="$last && field.itemsList.length < 10"
                        ng-click="addItem()"></small>
                 <small class="glyphicon glyphicon-minus" ng-click="removeItem($index)"
-                       ng-if="field.items.length > 2"></small>
+                       ng-if="field.itemsList.length > 2"></small>
             </div>
         </li>
     </ul>

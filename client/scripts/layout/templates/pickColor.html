@@ -2,7 +2,12 @@
       uib-popover-template="'pickColorPopover.html'"
       popover-placement="bottom"
       popover-enable="editable"
-      popover-trigger="'outsideClick'"></span>
+      popover-trigger="'outsideClick'"
+      popover-append-to-body="true"
+
+      uib-tooltip="Change color"
+      tooltip-append-to-body="true"
+      tooltip-enable="editable"></span>
 <script type="text/ng-template" id="pickColorPopover.html">
     <div class="pickColor">
         <color-picker ng-model="color.color">
