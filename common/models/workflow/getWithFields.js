@@ -1,7 +1,6 @@
 module.exports = function (wf) {
   wf.getWithFields = function (id, cb) {
     var Field = this.app.models.Field;
-    var FieldItems = this.app.models.FieldItems;
 
     wf.findById(id).then(function (workflow) {
       if (!workflow) {
@@ -11,26 +10,14 @@ module.exports = function (wf) {
       workflow.fields(function (er, fields) {
         if (er) throw er;
 
-        var ids = [];
+        var all = [];
         fields.forEach(function (item) {
-          ids.push(item.id);
+          all.push(Field.getWithFields(item.id));
         });
-
-        FieldItems.find({where: {fieldId: {inq: ids}}})
-          .then(function (fItems) {
-
-            fields.forEach(function (field) {
-              fItems.forEach(function (item) {
-                if (field.id === item.fieldId) {
-                  field.itemsList ? field.itemsList.push(item) : field.itemsList = [item];
-                }
-              });
-            });
-
-            workflow.fieldsList = fields;
-
-            cb(null, workflow);
-          });
+        Promise.all(all).then(function (data) {
+          workflow.fieldsList = data;
+          cb(null, workflow);
+        });
       });
     });
   };

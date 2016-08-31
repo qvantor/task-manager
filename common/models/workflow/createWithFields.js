@@ -10,11 +10,9 @@ module.exports = function (wf) {
             all.push(field.items.destroyAll());
           });
           Promise.all(all).then(function () {
-            workflow.fields.destroyAll().then(
-              function () {
-                wf.deleteById(id).then(function () {
-                  create();
-                })
+            workflow.fields.destroyAll()
+              .then(function () {
+                create();
               });
           });
         });
@@ -23,7 +21,7 @@ module.exports = function (wf) {
       create();
     }
     function create() {
-      wf.create({
+      wf.upsert({
         id: replace ? id : null,
         name: name,
         desc: desc
