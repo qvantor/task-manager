@@ -1,0 +1,40 @@
+.note-editor, .note-editor.note-frame {
+  border: none;
+  margin: 0px;
+
+  .note-toolbar, .panel-heading {
+    color: @headerTextColor;
+    border: none;
+    border-top: 1px solid @bg3;
+    border-bottom: 1px solid @bg3;
+    background: transparent;
+    margin: 0px -15px;
+    padding: 0px 15px;
+    .note-btn-group {
+      margin-top: 0px;
+
+      .dropdown-menu {
+        width: auto;
+      }
+      .note-btn {
+        border: none;
+        border-right: 1px solid @bg3;
+        background: none;
+
+        &:focus{
+          outline: none;
+        }
+      }
+    }
+  }
+  .note-statusbar {
+    background: transparent;
+    margin: 0px -15px;
+    border-bottom: 1px solid @bg3;
+
+    .note-resizebar {
+      width: 50px;
+      margin: 0px auto;
+    }
+  }
+}

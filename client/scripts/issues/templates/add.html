@@ -18,13 +18,13 @@
                             <label>Title</label>
                         </div>
                         <div class="col-xs-11">
-                            <input type="text">
+                            <input type="text" ng-model="vm.issue.title" placeholder="Issue summary"/>
                         </div>
                     </div>
                     <div class="input row">
                         <div class="col-xs-12">
                             <label>Description</label>
-                            <textarea ng-model="vm.project.desc"></textarea>
+                            <div text-editor="vm.issue.text"></div>
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,9 @@
         url: '/add',
         views: {
           "content@root": {
-            templateUrl: 'scripts/issues/templates/add.html'
+            templateUrl: 'scripts/issues/templates/add.html',
+            controller: 'addIssueCtrl',
+            controllerAs: 'vm'
           }
         }
       });
