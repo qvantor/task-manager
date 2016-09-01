@@ -16,6 +16,14 @@
             templateUrl: 'scripts/issues/templates/issues.html'
           }
         }
+      })
+      .state('project.issues.add', {
+        url: '/add',
+        views: {
+          "content@root": {
+            templateUrl: 'scripts/issues/templates/add.html'
+          }
+        }
       });
   }
 })();
