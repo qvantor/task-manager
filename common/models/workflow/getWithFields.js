@@ -1,22 +1,23 @@
 module.exports = function (wf) {
   wf.getWithFields = function (id, cb) {
     var Field = this.app.models.Field;
+    return new Promise(function (resolve) {
+      wf.findById(id).then(function (workflow) {
+        if (!workflow) {
+          resolve({});
+        }
 
-    wf.findById(id).then(function (workflow) {
-      if (!workflow) {
-        cb(null, {});
-      }
+        workflow.fields(function (er, fields) {
+          if (er) throw er;
 
-      workflow.fields(function (er, fields) {
-        if (er) throw er;
-
-        var all = [];
-        fields.forEach(function (item) {
-          all.push(Field.getWithFields(item.id));
-        });
-        Promise.all(all).then(function (data) {
-          workflow.fieldsList = data;
-          cb(null, workflow);
+          var all = [];
+          fields.forEach(function (item) {
+            all.push(Field.getWithFields(item.id));
+          });
+          Promise.all(all).then(function (data) {
+            workflow.fieldsList = data;
+            resolve(workflow);
+          });
         });
       });
     });
