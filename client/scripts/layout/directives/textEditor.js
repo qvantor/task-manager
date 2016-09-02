@@ -21,13 +21,12 @@
       e.summernote({
         height: 100,
         toolbar: [
-          ['edit', ['undo', 'redo']],
-          ['headline', ['style']],
           ['style', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
-          ['fontclr', ['color']],
+          ['headline', ['style']],
           ['alignment', ['ul', 'ol']],
           ['insert', ['hr']],
-          ['view', ['codeview']]
+          ['view', ['codeview']],
+          ['edit', ['undo', 'redo']]
         ]
       });
       e.on('summernote.change', function (we, contents) {

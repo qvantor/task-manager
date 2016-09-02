@@ -8,6 +8,8 @@ app.use(loopback.token({
   headers: ['X-Access-Token']
 }));
 
+require('./middleware/index')(app, loopback);
+
 app.start = function () {
   // start the web server
   return app.listen(function () {
