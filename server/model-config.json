@@ -55,5 +55,21 @@
   "TeamHasUser": {
     "dataSource": "db",
     "public": true
+  },
+  "Issue": {
+    "dataSource": "db",
+    "public": true
+  },
+  "IssueConnection": {
+    "dataSource": "db",
+    "public": true
+  },
+  "IssueHasAssignee": {
+    "dataSource": "db",
+    "public": true
+  },
+  "IssueHasField": {
+    "dataSource": "db",
+    "public": true
   }
 }

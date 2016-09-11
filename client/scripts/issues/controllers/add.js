@@ -5,9 +5,9 @@
     .module('app.issues')
     .controller('addIssueCtrl', addIssueCtrl);
 
-  addIssueCtrl.$inject = ['projectService', '$state'];
+  addIssueCtrl.$inject = ['projectService', '$state', 'issueService'];
 
-  function addIssueCtrl(project, $state) {
+  function addIssueCtrl(project, $state, issue) {
     var vm = this;
     vm.issue = {
       deadline: new Date()
@@ -18,10 +18,18 @@
     };
 
     vm.openDatePicker = openDatePicker;
+    vm.create = create;
 
     project.getProjectFields($state.params.id).then(function (data) {
       vm.fields = data;
     });
+
+    function create() {
+      issue.create(vm.issue)
+        .then(function (data) {
+
+        });
+    }
 
     function openDatePicker() {
       vm.dateOptions.open = true;
