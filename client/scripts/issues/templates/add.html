@@ -18,6 +18,10 @@
                             <div text-editor="vm.issue.text"></div>
                         </div>
                     </div>
+
+                    <div class="button">
+                        Create issue
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,15 +36,23 @@
                         <div uib-datepicker-popup
                              datepicker-options="vm.dateOptions"
                              ng-model="vm.issue.deadline"
-                             is-open="vm.dateOptions.open"/>
+                             is-open="vm.dateOptions.open"
+                             show-button-bar="false"/>
                         <div ng-click="vm.openDatePicker()">
                           {{vm.issue.deadline | date:'mediumDate'}}
                             <small class="glyphicon glyphicon-menu-down"></small>
                         </div>
                     </div>
                 </div>
+                <div class="field-dropdown row">
+                    <div class="col-xs-4">
+                        Assignee
+                    </div>
+                    <div class="col-xs-8">
+                        <div select-assignee="$state.params.id" assigned="vm.issue.assigned"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

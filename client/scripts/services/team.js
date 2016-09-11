@@ -13,12 +13,17 @@
     }
 
     function getAll() {
-      return req.option('teams', null, 'GET', null, true);
+      return req.option('teams', null, null, null, true);
+    }
+
+    function getUsers(id) {
+      return req.option('teams/' + id + '/users', null, null, null, true);
     }
 
     return {
       create: create,
-      getAll: getAll
+      getAll: getAll,
+      getUsers: getUsers
     };
   }
 

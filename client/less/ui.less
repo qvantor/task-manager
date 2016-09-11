@@ -138,6 +138,10 @@ input {
   padding: 0px;
 }
 
+.no-margin {
+  margin: 0px;
+}
+
 ul.tabs {
   margin: 0 -15px;
   padding: 0 15px 0 15px;
@@ -171,6 +175,18 @@ ul.dropdown {
     .tr;
     padding: 5px 20px;
     list-style-type: none;
+
+    &.input {
+      color: @color1;
+      input {
+        width: 85%;
+      }
+      border-bottom: 1px solid @color1;
+
+      &:hover {
+        background: none;
+      }
+    }
 
     &:hover {
       background: @bg3;

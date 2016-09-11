@@ -8,13 +8,20 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "teams": {
+      "type": "hasMany",
+      "model": "Team",
+      "foreignKey": "userId",
+      "through": "TeamHasUser"
+    }
+  },
   "acls": [
     {
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "inviteInTeam"
+      "property": "*"
     }
   ],
   "methods": {}

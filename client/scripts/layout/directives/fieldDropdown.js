@@ -19,7 +19,6 @@
     return directive;
 
     function link(s, e) {
-      console.log(s.data);
 
       var min = 10;
       s.selectItem = selectItem;

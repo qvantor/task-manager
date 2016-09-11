@@ -1,7 +1,7 @@
 module.exports = function (p) {
   p.getProjectFields = function (id) {
     var wf = this.app.models.Workflow;
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, rj) {
       p.findById(id)
         .then(function (project) {
           if (!project) resolve({});

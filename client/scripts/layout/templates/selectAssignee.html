@@ -1,0 +1,19 @@
+<span class="status" uib-dropdown auto-close="outsideClick">
+    <span uib-dropdown-toggle>
+      <span ng-repeat="user in users" ng-if="user.assigned">
+          {{user.email}}{{$last ? '' : ','}}
+      </span>
+      <span class="soft-text" ng-if="!assigned || assigned.length === 0">Unassigned</span>
+        <small class="glyphicon glyphicon-menu-down"></small>
+    </span>
+    <ul class="dropdown" uib-dropdown-menu role="menu">
+        <li class="input">
+            <small class="glyphicon glyphicon-search"></small>
+            <input type="text" ng-model="filter">
+        </li>
+        <li ng-click="selectItem(user)"
+            ng-repeat="user in users | filter:filter" ng-class="{color1: user.assigned}">
+          {{user.email}}
+        </li>
+    </ul>
+</span>
