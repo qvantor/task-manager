@@ -31,7 +31,7 @@ module.exports = function (wf) {
           workflow.fields.create(field, function (er, f) {
             if (er) throw er;
 
-            field.itemsList.forEach(function (item) {
+            field.items.forEach(function (item) {
               if (!replace) item.id = null;
               f.items.create(item);
             });
@@ -57,7 +57,7 @@ module.exports = function (wf) {
           arg: 'desc', type: 'string'
         },
         {
-          arg: 'fieldsList', type: 'array', required: true
+          arg: 'fields', type: 'array', required: true
         },
         {
           arg: 'replace', type: 'boolean', required: true

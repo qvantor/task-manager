@@ -24,7 +24,7 @@
       var min = 10;
       s.selectItem = selectItem;
 
-      s.data.itemsList.forEach(function (item, i) {
+      s.data.items.forEach(function (item, i) {
         if (item.order < min) {
           selectItem(item);
           min = item.order;

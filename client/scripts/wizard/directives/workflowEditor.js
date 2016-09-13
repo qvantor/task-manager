@@ -49,14 +49,14 @@
       }
 
       function addField(index) {
-        scope.fullWorkFlow.fieldsList.splice(index + 1, 0, {
-          title: 'Field' + scope.fullWorkFlow.fieldsList.length,
-          itemsList: [{title: 'Item1', order: 0}, {title: 'Item2', order: 1}]
+        scope.fullWorkFlow.fields.splice(index + 1, 0, {
+          title: 'Field' + scope.fullWorkFlow.fields.length,
+          items: [{title: 'Item1', order: 0}, {title: 'Item2', order: 1}]
         });
       }
 
       function removeField(index) {
-        scope.fullWorkFlow.fieldsList.splice(index, 1);
+        scope.fullWorkFlow.fields.splice(index, 1);
       }
 
       function editableMode() {
@@ -68,7 +68,7 @@
       }
 
       function saveWorkflow() {
-        scope.fullWorkFlow.fieldsList.forEach(function (item, i) {
+        scope.fullWorkFlow.fields.forEach(function (item, i) {
           item.order = i;
         });
         workflow.createWithFields(scope.fullWorkFlow).then(function (data) {

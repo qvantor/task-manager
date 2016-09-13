@@ -1,16 +1,19 @@
 module.exports = function (p) {
   p.getProjectFields = function (id) {
-    var wf = this.app.models.Workflow;
-    return new Promise(function (resolve, rj) {
-      p.findById(id)
-        .then(function (project) {
-          if (!project) resolve({});
-
-          wf.getWithFields(project.workflowId).then(function (workflow) {
-            resolve(workflow.fieldsList);
-          });
-        });
-    });
+    return p.findById(id,
+      {include:{
+        relation: 'workflow',
+        scope:{
+          include:{
+            relation:'fields',
+            scope:{
+              include: {
+                relation:'items'
+              }
+            }
+          }
+        }
+      }});
   };
   p.remoteMethod(
     'getProjectFields',

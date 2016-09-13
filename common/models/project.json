@@ -114,6 +114,11 @@
       "type": "belongsTo",
       "model": "Team",
       "foreignKey": "teamId"
+    },
+    "workflow": {
+      "type": "belongsTo",
+      "model": "Workflow",
+      "foreignKey": "workflowId"
     }
   },
   "acls": [],

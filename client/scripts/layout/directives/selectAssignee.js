@@ -11,7 +11,7 @@
     var directive = {
       restrict: 'EA',
       scope: {
-        project: '=selectAssignee',
+        team: '=selectAssignee',
         assigned: '='
       },
       templateUrl: 'scripts/layout/templates/selectAssignee.html',
@@ -20,7 +20,7 @@
     return directive;
 
     function link(scope, element) {
-      team.getUsers(scope.project)
+      team.getUsers(scope.team)
         .then(function (data) {
           scope.users = data;
         });

@@ -37,17 +37,17 @@
       vm.removeItem = removeItem;
 
       function addItem() {
-        if (vm.field.itemsList.length < 10)
-          vm.field.itemsList.push({
-            title: 'Item' + (vm.field.itemsList.length + 1),
+        if (vm.field.items.length < 10)
+          vm.field.items.push({
+            title: 'Item' + (vm.field.items.length + 1),
             color: null,
-            order: vm.field.itemsList.length
+            order: vm.field.items.length
           });
       }
 
       function removeItem(index) {
-        if (vm.field.itemsList.length > 2)
-          vm.field.itemsList.splice(index, 1);
+        if (vm.field.items.length > 2)
+          vm.field.items.splice(index, 1);
       }
 
       vm.$watch('editable', function (n, o) {

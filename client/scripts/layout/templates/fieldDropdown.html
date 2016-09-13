@@ -11,7 +11,7 @@
                 <small class="glyphicon glyphicon-menu-down"></small>
             </span>
             <ul class="dropdown" uib-dropdown-menu role="menu">
-                <li ng-click="selectItem(item)" ng-repeat="item in data.itemsList | orderBy:'order'">
+                <li ng-click="selectItem(item)" ng-repeat="item in data.items | orderBy:'order'">
                     <small class="{{item.icon}}" ng-style="{color: item.color}"></small>
                   {{item.title}}
                 </li>

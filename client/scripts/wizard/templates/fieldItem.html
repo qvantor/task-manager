@@ -9,7 +9,7 @@
         </div>
     </div>
     <ul ng-sortable="sortable">
-        <li class="item row" ng-repeat="item in field.itemsList | orderBy: 'order'">
+        <li class="item row" ng-repeat="item in field.items | orderBy: 'order'">
             <div class="col-xs-3 no-padding-right text-center">
                 <span pick-icon="item.icon" editable="editable"></span>
                 <span ng-if="item.color || editable" ng-style="{color: item.color}" pick-color="item"
@@ -21,10 +21,10 @@
                        ng-disabled="!editable">
             </div>
             <div class="col-xs-3 only-editable">
-                <small class="glyphicon glyphicon-plus" ng-if="$last && field.itemsList.length < 10"
+                <small class="glyphicon glyphicon-plus" ng-if="$last && field.items.length < 10"
                        ng-click="addItem()"></small>
                 <small class="glyphicon glyphicon-minus" ng-click="removeItem($index)"
-                       ng-if="field.itemsList.length > 2"></small>
+                       ng-if="field.items.length > 2"></small>
             </div>
         </li>
     </ul>

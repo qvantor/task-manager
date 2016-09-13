@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-3">
             <div class="block standard-block full-padding">
-                <div ng-repeat="field in vm.fields | orderBy: 'order'"
+                <div ng-repeat="field in vm.project.workflow.fields | orderBy: 'order'"
                      field-dropdown="field"
                      field="vm.issue.fields[$index]"></div>
                 <div class="field-dropdown row">
@@ -51,7 +51,7 @@
                         Assignee
                     </div>
                     <div class="col-xs-8">
-                        <div select-assignee="$state.params.id" assigned="vm.issue.assigned"></div>
+                        <div select-assignee="vm.project.teamId" assigned="vm.issue.assigned" ng-if="vm.project.teamId"></div>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@
     vm.create = create;
 
     project.getProjectFields($state.params.id).then(function (data) {
-      vm.fields = data;
+      vm.project = data;
     });
 
     function create() {
