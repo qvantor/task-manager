@@ -10,7 +10,9 @@
   function addIssueCtrl(project, $state, issue) {
     var vm = this;
     vm.issue = {
-      deadline: new Date()
+      deadline: new Date(),
+      projectId: $state.params.id,
+      fields: []
     };
     vm.dateOptions = {
       minDate: vm.issue.deadline,
@@ -25,7 +27,7 @@
     });
 
     function create() {
-      issue.create(vm.issue)
+      issue.create({data: vm.issue})
         .then(function (data) {
 
         });

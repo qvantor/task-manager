@@ -11,7 +11,8 @@
     var directive = {
       restrict: 'EA',
       scope: {
-        data: '=fieldDropdown'
+        data: '=fieldDropdown',
+        field: '='
       },
       templateUrl: 'scripts/layout/templates/fieldDropdown.html',
       link: link
@@ -25,12 +26,13 @@
 
       s.data.itemsList.forEach(function (item, i) {
         if (item.order < min) {
-          s.selected = item;
+          selectItem(item);
           min = item.order;
         }
       });
 
       function selectItem(item) {
+        s.field = {fieldId: s.data.id, fieldItemsId: item.id};
         s.selected = item;
       }
     }

@@ -64,11 +64,11 @@
     "dataSource": "db",
     "public": true
   },
-  "IssueHasAssignee": {
+  "IssueHasField": {
     "dataSource": "db",
     "public": true
   },
-  "IssueHasField": {
+  "IssueHasAssignee": {
     "dataSource": "db",
     "public": true
   }

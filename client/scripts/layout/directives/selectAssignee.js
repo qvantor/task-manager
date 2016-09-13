@@ -34,9 +34,9 @@
 
       function countAssigned() {
         scope.assigned = [];
-        scope.users.forEach(function (item) {
-          if (item.assigned)
-            scope.assigned.push(item.id);
+        scope.users.forEach(function (user) {
+          if (user.assigned)
+            scope.assigned.push({userId: user.id});
         });
       }
     }

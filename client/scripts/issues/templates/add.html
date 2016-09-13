@@ -19,7 +19,7 @@
                         </div>
                     </div>
 
-                    <div class="button">
+                    <div class="button" ng-click="vm.create()">
                         Create issue
                     </div>
                 </div>
@@ -27,7 +27,9 @@
         </div>
         <div class="col-md-3">
             <div class="block standard-block full-padding">
-                <div ng-repeat="field in vm.fields | orderBy: 'order'" field-dropdown="field"></div>
+                <div ng-repeat="field in vm.fields | orderBy: 'order'"
+                     field-dropdown="field"
+                     field="vm.issue.fields[$index]"></div>
                 <div class="field-dropdown row">
                     <div class="col-xs-4">
                         Deadline

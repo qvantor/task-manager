@@ -13,7 +13,7 @@
     "id": {
       "type": "Number",
       "id": true,
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
@@ -55,22 +55,6 @@
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "alias": {
-      "type": "String",
-      "required": true,
-      "length": 45,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "alias",
-        "dataType": "varchar",
-        "dataLength": 45,
-        "dataPrecision": null,
-        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
@@ -146,6 +130,16 @@
       "type": "belongsTo",
       "model": "Project",
       "foreignKey": "projectId"
+    },
+    "fields": {
+      "type": "hasMany",
+      "model": "IssueHasField",
+      "foreignKey": "issueId"
+    },
+    "assignee":{
+      "type": "hasMany",
+      "model": "IssueHasAssignee",
+      "foreignKey": "issueId"
     }
   },
   "acls": [],
