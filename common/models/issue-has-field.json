@@ -77,7 +77,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "field": {
+      "type": "belongsTo",
+      "model": "Field",
+      "foreignKey": "fieldId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

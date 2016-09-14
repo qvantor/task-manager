@@ -4,4 +4,5 @@ module.exports = function(Issue) {
 
   require('./issue/create')(Issue);
   require('./issue/getById')(Issue);
+  require('./issue/search')(Issue);
 };

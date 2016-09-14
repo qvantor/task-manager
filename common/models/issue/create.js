@@ -1,6 +1,5 @@
 module.exports = function (i) {
   var sanitize = require('sanitize-html');
-  var _ = require('underscore-node');
 
   i.add = function (data) {
     var app = this.app;
