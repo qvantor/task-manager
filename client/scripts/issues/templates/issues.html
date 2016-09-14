@@ -1,23 +1,7 @@
-<main class="container tasks">
+<main class="container tasks" ng-init="filters = {}">
     <div class="row">
         <div class="col-md-3">
-            <div class="header">
-                Filters
-            </div>
-            <div class="block standard-block">
-                <ul>
-                    <li>
-                        Big data
-                    </li>
-                    <li>
-                        Piz data
-                    </li>
-                    <li>
-                        Small data
-                    </li>
-                </ul>
-            </div>
-
+            <div issues-filters="filters" project-id="$state.params.id"></div>
             <div class="header">
                 Tags
             </div>
