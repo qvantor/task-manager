@@ -1,4 +1,5 @@
 <span>{{field.title}}</span>
 <div ng-repeat="item in field.items" ng-if="issueField.fieldItemsId === item.id">
+    <div class="inline" ng-class="item.icon" ng-style="{color: item.color}"></div>
   {{item.title}}
 </div>

@@ -15,10 +15,14 @@
       return req.option('projects/getProjectFields/' + id, null, 'GET', null, true);
     }
 
+    function search(query) {
+      return req.option('projects/search', query, 'GET', null, true);
+    }
 
     return {
       create: create,
-      getProjectFields: getProjectFields
+      getProjectFields: getProjectFields,
+      search: search
     };
   }
 

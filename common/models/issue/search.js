@@ -5,7 +5,9 @@ module.exports = function (i) {
     }).then(function (data) {
       return data.filter(function (issue) {
         var issue = issue.toJSON(),
-          fields = [];
+          fields = [],
+          assignedArr = [];
+
         issue.fields.forEach(function (field) {
           for (var key in fitems) {
             if (fitems[key].length === 0) delete fitems[key];
@@ -14,7 +16,15 @@ module.exports = function (i) {
             }
           }
         });
-        return Object.keys(fitems).length === fields.length;
+
+        issue.assignee.forEach(function (assignee) {
+          if (assigned.indexOf(assignee.userId) >= 0) {
+            assignedArr.push({});
+          }
+        });
+
+        return Object.keys(fitems).length === fields.length
+          && assigned.length === assignedArr.length;
       });
     });
   };

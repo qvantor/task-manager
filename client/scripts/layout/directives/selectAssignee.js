@@ -19,7 +19,7 @@
     };
     return directive;
 
-    function link(scope, element) {
+    function link(scope, element, attr) {
       team.getUsers(scope.team)
         .then(function (data) {
           scope.users = data;
@@ -35,8 +35,12 @@
       function countAssigned() {
         scope.assigned = [];
         scope.users.forEach(function (user) {
-          if (user.assigned)
-            scope.assigned.push({userId: user.id});
+          if (user.assigned) {
+            if (attr.return === 'array')
+              scope.assigned.push(user.id);
+            else
+              scope.assigned.push({userId: user.id});
+          }
         });
       }
     }

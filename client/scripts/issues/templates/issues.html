@@ -7,6 +7,11 @@
                 </div>
                 <div class="block standard-block">
                     <div issues-filters="vm.filters.fitems" project-id="$state.params.id"></div>
+                    <div select-assignee="vm.project.teamId"
+                         class="panel-heading"
+                         assigned="vm.filters.assigned"
+                         return="array"
+                         ng-if="vm.project.teamId"></div>
                 </div>
             </div>
             <div class="header">
@@ -60,7 +65,9 @@
                     <ul class="fields">
                         <li>
                             <span>Assignee</span>
-                            Sergey Nikolaev
+                            <p class="inline" ng-repeat="u in issue.assignee">
+                              {{u.userId}}
+                            </p>
                         </li>
                         <li ng-repeat="field in issue.fields" issue-field="field" project-id="$state.params.id">
                         </li>
