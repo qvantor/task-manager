@@ -1,7 +1,14 @@
-<main class="container tasks" ng-init="filters = {}">
+<main class="container tasks">
     <div class="row">
         <div class="col-md-3">
-            <div issues-filters="filters" project-id="$state.params.id"></div>
+            <div class="issues-filters">
+                <div class="header">
+                    Filters
+                </div>
+                <div class="block standard-block">
+                    <div issues-filters="vm.filters.fitems" project-id="$state.params.id"></div>
+                </div>
+            </div>
             <div class="header">
                 Tags
             </div>
@@ -28,7 +35,7 @@
                 <input type="text" placeholder="Enter search request">
             </div>
             <div class="tasks-list">
-                <div class="task row" ng-repeat="item in [{},{},{},{},{},{},{},{},{},{},{},{},{}]">
+                <div class="task row" ng-repeat="issue in vm.issues">
                     <div class="pull-right font-w600 soft-text">
                         <span class="glyphicon glyphicon-star-empty big-icon"></span>
                         <span class="glyphicon glyphicon-cog big-icon"></span>
@@ -47,38 +54,36 @@
                               <li>Fixed</li>
                             </ul>
                         </span>
-                        Улучшение страницы транзакции
+                      {{issue.title}}
                     </div>
-                    <div class="issue" issue ng-if="$index === 1"></div>
+                    <div class="issue" issue></div>
                     <ul class="fields">
                         <li>
                             <span>Assignee</span>
                             Sergey Nikolaev
                         </li>
-                        <li>
-                            <span>Type</span>
-                            New feature
+                        <li ng-repeat="field in issue.fields" issue-field="field" project-id="$state.params.id">
                         </li>
-                        <li>
-                            <span>Priority</span>
-                            High
-                        </li>
-                        <li>
-                            <span>Subsystem</span>
-                            Design
-                        </li>
-                        <li>
-                            <span>Created</span>
-                            9/3/10 12:05 PM
-                        </li>
-                        <li>
-                            <span>Deadline</span>
-                            1 day left
-                        </li>
-                        <li>
-                            <span>Time</span>
-                            2h/8h
-                        </li>
+                        <!--<li>-->
+                        <!--<span>Priority</span>-->
+                        <!--High-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<span>Subsystem</span>-->
+                        <!--Design-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<span>Created</span>-->
+                        <!--9/3/10 12:05 PM-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<span>Deadline</span>-->
+                        <!--1 day left-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<span>Time</span>-->
+                        <!--2h/8h-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>

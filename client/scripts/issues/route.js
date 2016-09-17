@@ -13,7 +13,9 @@
         url: '/issues',
         views: {
           "content@root": {
-            templateUrl: 'scripts/issues/templates/issues.html'
+            templateUrl: 'scripts/issues/templates/issues.html',
+            controller: 'issuesCtrl',
+            controllerAs: 'vm'
           }
         }
       })

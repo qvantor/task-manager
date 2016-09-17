@@ -1,0 +1,34 @@
+.issues-filters{
+  .panel {
+    border: none;
+
+    .panel-heading {
+      padding: 5px 20px;
+      border-radius: 0px;
+
+      .panel-title {
+        font-size: 14px;
+      }
+    }
+    .panel-body {
+      padding: 0px;
+      background: lighten(@grayText, 10%);
+      color: #fff;
+      border: none;
+
+      ul{
+        li{
+          &:hover{
+            background: @grayText;
+          }
+        }
+      }
+    }
+
+    &.panel-open{
+      .panel-heading {
+        color: @color3;
+      }
+    }
+  }
+}

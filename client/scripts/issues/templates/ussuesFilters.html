@@ -1,12 +1,15 @@
-<div class="header">
-    Filters
-</div>
-<div class="block standard-block">
-    <uib-accordion>
-        <div uib-accordion-group heading="{{field.title}}" ng-repeat="field in fields">
-            <ul>
-                <li ng-repeat="item in field.items">{{item.title}}</li>
-            </ul>
-        </div>
-    </uib-accordion>
-</div>
+<uib-accordion>
+    <div uib-accordion-group ng-repeat="field in fields">
+        <uib-accordion-heading>
+          {{field.title}}
+        </uib-accordion-heading>
+        <ul>
+            <li ng-repeat="item in field.items"
+                ng-click="select(item, field)">
+                        <span class="glyphicon"
+                              ng-class="selectedItems.indexOf(item.id) >= 0 ? 'glyphicon glyphicon-ok-sign' : 'glyphicon glyphicon-ok-circle'"></span>
+              {{item.title}}
+            </li>
+        </ul>
+    </div>
+</uib-accordion>

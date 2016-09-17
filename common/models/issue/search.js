@@ -1,50 +1,31 @@
 module.exports = function (i) {
-  var _ = require('underscore-node');
-
   i.search = function (fitems, assigned) {
     return i.find({
       include: ['assignee', 'fields']
     }).then(function (data) {
-      var issues = [];
-      data.forEach(function (issue) {
+      return data.filter(function (issue) {
         var issue = issue.toJSON(),
-          assignee = false,
-          fields = false;
-
-        if (fitems.length > 0) {
-          for (var key in issue.fields) {
-            if (fitems.indexOf(issue.fields[key].fieldItemsId) >= 0) {
-              fields = true;
-              break;
+          fields = [];
+        issue.fields.forEach(function (field) {
+          for (var key in fitems) {
+            if (fitems[key].length === 0) delete fitems[key];
+            if (field.fieldId === Number(key) && fitems[key] && fitems[key].indexOf(field.fieldItemsId) >= 0) {
+              fields.push({});
             }
           }
-        } else fields = true;
-
-        if (assigned.length > 0) {
-          for (var key in issue.assignee) {
-            if (assigned.indexOf(issue.assignee[key].userId) >= 0) {
-              assignee = true;
-              break;
-            }
-          }
-        } else assignee = true;
-
-        if (fields && assignee) {
-          issues.push(issue);
-        }
+        });
+        return Object.keys(fitems).length === fields.length;
       });
-
-      return issues;
     });
   };
   i.remoteMethod(
     'search',
     {
       accepts: [
-        {arg: 'fitems', type: 'array'},
+        {arg: 'fitems', type: 'object'},
         {arg: 'assigned', type: 'array'}
       ],
-      http: {path: '/search', verb: 'GET'},
+      http: {path: '/search', verb: 'POST'},
       returns: {root: true}
     });
 };
