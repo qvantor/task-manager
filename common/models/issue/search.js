@@ -1,6 +1,7 @@
 module.exports = function (i) {
-  i.search = function (fitems, assigned) {
+  i.search = function (projectId, fitems, assigned) {
     return i.find({
+      where: {projectId: projectId},
       include: ['assignee', 'fields']
     }).then(function (data) {
       return data.filter(function (issue) {
@@ -32,6 +33,7 @@ module.exports = function (i) {
     'search',
     {
       accepts: [
+        {arg: 'projectId', type: 'number', required: true},
         {arg: 'fitems', type: 'object'},
         {arg: 'assigned', type: 'array'}
       ],

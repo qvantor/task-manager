@@ -29,7 +29,7 @@
     function create() {
       issue.create({data: vm.issue})
         .then(function (data) {
-
+          $state.go('project.issues');
         });
     }
 

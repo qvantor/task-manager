@@ -23,6 +23,15 @@
       team.getUsers(scope.team)
         .then(function (data) {
           scope.users = data;
+
+          if (scope.assigned)
+            data.forEach(function (user) {
+              scope.assigned.forEach(function (assigned) {
+                if (assigned.userId === user.id) {
+                  user.assigned = true;
+                }
+              });
+            });
         });
 
       scope.selectItem = selectItem;

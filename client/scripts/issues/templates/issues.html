@@ -46,51 +46,59 @@
                         <span class="glyphicon glyphicon-cog big-icon"></span>
                     </div>
                     <div class="head">
-                        <span class="status" ng-style="{background: '#2ecc71'}"
-                              uib-dropdown auto-close="outsideClick">
-                          <span uib-dropdown-toggle>Submitted <small
-                                  class="glyphicon glyphicon-menu-down"></small> </span>
-                            <ul class="dropdown" uib-dropdown-menu role="menu"
-                                aria-labelledby="btn-append-to-single-button">
-                              <li>Reopened</li>
-                              <li>Pause</li>
-                              <li>Testing required</li>
-                              <li>Verified</li>
-                              <li>Fixed</li>
-                            </ul>
-                        </span>
+                        <!--<span class="status" ng-style="{background: '#2ecc71'}"
+                        uib-dropdown auto-close="outsideClick">
+                        <span uib-dropdown-toggle>Submitted <small
+                        class="glyphicon glyphicon-menu-down"></small> </span>
+                        <ul class="dropdown" uib-dropdown-menu role="menu"
+                        aria-labelledby="btn-append-to-single-button">
+                        <li>Reopened</li>
+                        <li>Pause</li>
+                        <li>Testing required</li>
+                        <li>Verified</li>
+                        <li>Fixed</li>
+                        </ul>
+                        </span>-->
                       {{issue.title}}
                     </div>
                     <div class="issue" issue></div>
                     <ul class="fields">
+                        <li class="wrap-text">
+                            <span class="header">Assignee</span>
+                            <div select-assignee="vm.project.teamId"
+                                 assigned="issue.assignee"
+                                 ng-if="vm.project.teamId"></div>
+                        </li>
+                        <li class="wrap-text" ng-repeat="field in vm.project.workflow.fields | orderBy: 'order'">
+                            <div ng-repeat="issueField in issue.fields"
+                                 ng-if="field.id === issueField.fieldId"
+                                 field-dropdown="field"
+                                 field="issueField"
+                                 on-change="vm.updateFields"
+                                 template="scripts/layout/templates/simpleFieldDropdown.html"
+                                 project-id="$state.params.id">
+                            </div>
+                        </li>
+                        <!--<li>
+                        <span>Priority</span>
+                        High
+                        </li>
                         <li>
-                            <span>Assignee</span>
-                            <p class="inline" ng-repeat="u in issue.assignee">
-                              {{u.userId}}
-                            </p>
+                        <span>Subsystem</span>
+                        Design
                         </li>
-                        <li ng-repeat="field in issue.fields" issue-field="field" project-id="$state.params.id">
+                        <li>
+                        <span>Created</span>
+                        9/3/10 12:05 PM
                         </li>
-                        <!--<li>-->
-                        <!--<span>Priority</span>-->
-                        <!--High-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<span>Subsystem</span>-->
-                        <!--Design-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<span>Created</span>-->
-                        <!--9/3/10 12:05 PM-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<span>Deadline</span>-->
-                        <!--1 day left-->
-                        <!--</li>-->
-                        <!--<li>-->
-                        <!--<span>Time</span>-->
-                        <!--2h/8h-->
-                        <!--</li>-->
+                        <li>
+                        <span>Deadline</span>
+                        1 day left
+                        </li>
+                        <li>
+                        <span>Time</span>
+                        2h/8h
+                        </li>-->
                     </ul>
                 </div>
             </div>

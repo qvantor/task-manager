@@ -1,0 +1,15 @@
+<span class="header">{{data.title}}</span>
+<span class="status" uib-dropdown dropdown-append-to-body="true">
+    <span uib-dropdown-toggle>
+        <small ng-style="{color: selected.color}"
+               class="{{selected.icon}}"></small>
+      {{selected.title}}
+        <small class="glyphicon glyphicon-menu-down"></small>
+    </span>
+    <ul class="dropdown" uib-dropdown-menu role="menu">
+        <li ng-click="selectItem(item)" ng-repeat="item in data.items | orderBy:'order'">
+          <small class="{{item.icon}}" ng-style="{color: item.color}"></small>
+          {{item.title}}
+        </li>
+    </ul>
+</span>

@@ -1,4 +1,4 @@
-<span class="status" uib-dropdown auto-close="outsideClick">
+<span class="status" uib-dropdown dropdown-append-to-body="true" auto-close="outsideClick">
     <span uib-dropdown-toggle>
       <span ng-repeat="user in users" ng-if="user.assigned">
           {{user.email}}{{$last ? '' : ','}}

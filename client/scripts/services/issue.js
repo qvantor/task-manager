@@ -11,13 +11,19 @@
       return req.option('issues', null, 'POST', data);
     }
 
+    function updateFields(data) {
+      return req.option('issues/' + data.issueId + '/fields/' + data.id, null, 'PUT', data, true);
+    }
+
     function search(query) {
       return req.option('issues/search', null, 'POST', query, null);
     }
 
     return {
       create: create,
-      search: search
+      search: search,
+
+      updateFields: updateFields
     };
   }
 
