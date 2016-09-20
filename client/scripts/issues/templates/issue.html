@@ -1,12 +1,4 @@
-<div class="issue-text">
-    Adding more detail to tasks will help you better organize your work and search lists. Add labels for easier
-    identification, assign to a milestone to keep the pacing up, and change priority to indicate the importance of
-    your task.
-
-    Need to keep up with the timeline? Add a due date. Tired of ''how long will it take'' questions? Estimate it.
-    Need a little privacy with this one? Change visibility settings. In the end, you can add followers who may be
-    interested in the task progres
-</div>
+<div class="issue-text" ng-bind-html="issue.text | trustAsHtml"></div>
 <div class="soft-text">
     <ul class="tabs">
         <li class="active">

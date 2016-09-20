@@ -1,4 +1,4 @@
-<main class="container tasks">
+<main class="container issues">
     <div class="row">
         <div class="col-md-3">
             <div class="issues-filters">
@@ -39,13 +39,14 @@
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" placeholder="Enter search request">
             </div>
-            <div class="tasks-list">
-                <div class="task row" ng-repeat="issue in vm.issues">
+            <div class="issues-list">
+                <div class="task row" ng-repeat="issue in vm.issues"
+                     id="issue{{issue.id}}">
                     <div class="pull-right font-w600 soft-text">
                         <span class="glyphicon glyphicon-star-empty big-icon"></span>
                         <span class="glyphicon glyphicon-cog big-icon"></span>
                     </div>
-                    <div class="head">
+                    <div class="head" ng-click="vm.openIssue(issue)">
                         <!--<span class="status" ng-style="{background: '#2ecc71'}"
                         uib-dropdown auto-close="outsideClick">
                         <span uib-dropdown-toggle>Submitted <small
@@ -61,7 +62,8 @@
                         </span>-->
                       {{issue.title}}
                     </div>
-                    <div class="issue" issue></div>
+                    <div class="issue" issue="issue"
+                         ng-if="$state.params.issue == issue.id"></div>
                     <ul class="fields">
                         <li class="wrap-text">
                             <span class="header">Assignee</span>

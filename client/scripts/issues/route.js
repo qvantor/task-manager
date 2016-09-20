@@ -10,7 +10,7 @@
   function configureState($stateProvider) {
     $stateProvider
       .state('project.issues', {
-        url: '/issues',
+        url: '/issues/:issue',
         views: {
           "content@root": {
             templateUrl: 'scripts/issues/templates/issues.html',
