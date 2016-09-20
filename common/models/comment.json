@@ -1,5 +1,5 @@
 {
-  "name": "Issue",
+  "name": "Comment",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,18 +7,33 @@
   },
   "mysql": {
     "schema": "track",
-    "table": "issue"
+    "table": "comment"
   },
   "properties": {
-    "id": {
+    "issueId": {
       "type": "Number",
-      "id": true,
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "issue_id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "parentId": {
+      "type": "Number",
       "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "id",
+        "columnName": "parent_id",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
@@ -27,50 +42,18 @@
       },
       "_selectable": false
     },
-    "projectId": {
+    "userId": {
       "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "project_id",
+        "columnName": "user_id",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "creatorId": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "creator_id",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "title": {
-      "type": "String",
-      "required": true,
-      "length": 255,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "title",
-        "dataType": "varchar",
-        "dataLength": 255,
-        "dataPrecision": null,
-        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
@@ -78,13 +61,13 @@
     "text": {
       "type": "String",
       "required": true,
-      "length": 4294967295,
+      "length": 255,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "text",
-        "dataType": "longtext",
-        "dataLength": 4294967295,
+        "dataType": "tinytext",
+        "dataLength": 255,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
@@ -107,18 +90,19 @@
       },
       "_selectable": false
     },
-    "deadline": {
-      "type": "Date",
-      "required": true,
+    "id": {
+      "type": "Number",
+      "id": true,
+      "required": false,
       "length": null,
-      "precision": null,
-      "scale": null,
+      "precision": 10,
+      "scale": 0,
       "mysql": {
-        "columnName": "deadline",
-        "dataType": "datetime",
+        "columnName": "id",
+        "dataType": "int",
         "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
         "nullable": "N"
       },
       "_selectable": false
@@ -126,25 +110,10 @@
   },
   "validations": [],
   "relations": {
-    "project": {
-      "type": "belongsTo",
-      "model": "Project",
-      "foreignKey": "projectId"
-    },
-    "fields": {
-      "type": "hasMany",
-      "model": "IssueHasField",
-      "foreignKey": "issueId"
-    },
-    "assignee":{
-      "type": "hasMany",
-      "model": "IssueHasAssignee",
-      "foreignKey": "issueId"
-    },
     "comments": {
       "type": "hasMany",
       "model": "Comment",
-      "foreignKey": "issueId"
+      "foreignKey": "parentId"
     }
   },
   "acls": [],

@@ -1,0 +1,22 @@
+<div class="comment" ng-repeat="comment in comments | orderBy: 'created'">
+    <img src="http://placehold.it/350x350" class="img-responsive img-circle photo">
+    <div class="right">
+        <span class="glyphicon glyphicon-share-alt"
+              ng-if="reply"
+              ng-click="setReply(comment.id)">
+        </span>
+    </div>
+    <div class="comment-body">
+        <span class="name">Sergey Nikolaev {{comment.userId}}</span>
+        <span class="date">{{comment.created | date:'medium'}}</span>
+        <div class="text" ng-bind-html="comment.text | trustAsHtml"></div>
+
+        <div comments-list="comment.comments"></div>
+
+        <div add-comment="{{issueId}}"
+             reply-on="replyOn"
+             set-reply="setReply"
+             comments-array="comment.comments"
+             ng-if="replyOn === comment.id"></div>
+    </div>
+</div>

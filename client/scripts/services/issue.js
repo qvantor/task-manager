@@ -11,6 +11,14 @@
       return req.option('issues', null, 'POST', data);
     }
 
+    function addComment(data) {
+      return req.option('issues/' + data.issueId + '/comments', null, 'POST', data);
+    }
+
+    function comments(issueId) {
+      return req.option('issues/' + issueId + '/comments', null, 'GET');
+    }
+
     function updateFields(data) {
       return req.option('issues/' + data.issueId + '/fields/' + data.id, null, 'PUT', data, true);
     }
@@ -22,6 +30,9 @@
     return {
       create: create,
       search: search,
+
+      addComment: addComment,
+      comments: comments,
 
       updateFields: updateFields
     };

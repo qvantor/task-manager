@@ -1,0 +1,17 @@
+<div class="comments" ng-init="replyOn = null">
+    <div comments-list="comments"
+         reply="true"
+         issue-id="{{issue}}"
+         reply-on="replyOn">
+    </div>
+    <div add-comment="{{issue}}"
+         comments-array="comments"
+         ng-if="replyOn === undefined"></div>
+</div>
+<div class="add-comment">
+    <div class="open" title="Add new comment"
+         ng-click="replyOn = replyOn === undefined ? null : undefined">
+        <div class="glyphicon"
+             ng-class="{'glyphicon-plus': replyOn !== undefined, 'glyphicon-minus': replyOn === undefined}"></div>
+    </div>
+</div>
