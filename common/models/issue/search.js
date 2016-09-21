@@ -1,5 +1,5 @@
 module.exports = function (i) {
-  i.search = function (projectId, fitems, assigned) {
+  i.search = function (projectId, fitems, assigned, limit, offset) {
     return i.find({
       where: {projectId: projectId},
       include: ['assignee', 'fields']
@@ -26,7 +26,7 @@ module.exports = function (i) {
 
         return Object.keys(fitems).length === fields.length
           && assigned.length === assignedArr.length;
-      });
+      }).splice(offset || 0, limit || 20);
     });
   };
   i.remoteMethod(
@@ -35,7 +35,9 @@ module.exports = function (i) {
       accepts: [
         {arg: 'projectId', type: 'number', required: true},
         {arg: 'fitems', type: 'object'},
-        {arg: 'assigned', type: 'array'}
+        {arg: 'assigned', type: 'array'},
+        {arg: 'limit', type: 'number'},
+        {arg: 'offset', type: 'number'}
       ],
       http: {path: '/search', verb: 'POST'},
       returns: {root: true}
