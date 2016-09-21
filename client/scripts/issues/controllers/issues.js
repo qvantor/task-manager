@@ -5,9 +5,9 @@
     .module('app.issues')
     .controller('issuesCtrl', issuesCtrl);
 
-  issuesCtrl.$inject = ['$scope', '$state', 'issueService', 'projectService', '$anchorScroll'];
+  issuesCtrl.$inject = ['$scope', '$state', 'issueService', 'projectService'];
 
-  function issuesCtrl($scope, $state, issue, project, $anchorScroll) {
+  function issuesCtrl($scope, $state, issue, project) {
     var vm = this;
     vm.issues = [];
     vm.loaded = false;
@@ -18,11 +18,17 @@
       fitems: {}
     };
 
-    project.getProjectFields($state.params.id).then(function (data) {
-      vm.loaded = true;
-      vm.filters.projectId = data.id;
-      vm.project = data;
-    });
+    init();
+    function init() {
+      project.getProjectFields($state.params.id).then(function (data) {
+        vm.loaded = true;
+        vm.filters.projectId = data.id;
+        vm.project = data;
+      });
+      if ($state.params.issue) {
+        scrollToIssue($state.params.issue);
+      }
+    }
 
     $scope.$watch('vm.filters', function (current, original) {
       if (vm.loaded)
@@ -42,13 +48,16 @@
     function openIssue(issue) {
       if ($state.params.issue != issue.id) {
         $state.go('project.issues', {issue: issue.id}, {notify: false});
-        setTimeout(function () {
-          $("body").animate({scrollTop: $('#issue' + issue.id).offset().top}, 200);
-        }, 100);
-
+        scrollToIssue(issue.id);
       } else {
         $state.go('project.issues', {issue: null}, {notify: false});
       }
+    }
+
+    function scrollToIssue(id) {
+      setTimeout(function () {
+        $("body").animate({scrollTop: $('#issue' + id).offset().top}, 200);
+      }, 100);
     }
   }
 })();

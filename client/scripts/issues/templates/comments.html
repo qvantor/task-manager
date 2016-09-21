@@ -2,10 +2,12 @@
     <div comments-list="comments"
          reply="true"
          issue-id="{{issue}}"
+         set-reply="setReply"
          reply-on="replyOn">
     </div>
     <div add-comment="{{issue}}"
          comments-array="comments"
+         set-reply="setReply"
          ng-if="replyOn === undefined"></div>
 </div>
 <div class="add-comment">

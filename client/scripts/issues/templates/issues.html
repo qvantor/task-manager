@@ -40,7 +40,7 @@
                 <input type="text" placeholder="Enter search request">
             </div>
             <div class="issues-list">
-                <div class="task row" ng-repeat="issue in vm.issues"
+                <div class="task row" ng-repeat="issue in vm.issues track by issue.id"
                      id="issue{{issue.id}}">
                     <div class="pull-right font-w600 soft-text">
                         <span class="glyphicon glyphicon-star-empty big-icon"></span>

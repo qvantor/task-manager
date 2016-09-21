@@ -14,24 +14,12 @@
         comments: '=commentsList',
         reply: '@',
         issueId: '@',
-        replyOn: '='
+        replyOn: '=',
+        setReply: '='
       },
-      templateUrl: 'scripts/issues/templates/commentsList.html',
-      link: link
+      templateUrl: 'scripts/issues/templates/commentsList.html'
     };
     return directive;
-
-    function link(s) {
-      s.setReply = setReply;
-
-      function setReply(id) {
-        if (s.replyOn === id) {
-          s.replyOn = null;
-        } else {
-          s.replyOn = id;
-        }
-      }
-    }
   }
 })
 ();

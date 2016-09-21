@@ -33,8 +33,10 @@
         issue.addComment(s.comment).then(function (data) {
           data.comments = [];
           s.commentsArray.push(data);
-          if (s.setReply)
+
+          if (s.setReply) {
             s.setReply(null);
+          }
         });
       }
     }
